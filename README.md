@@ -4,8 +4,8 @@ Repositori de webs de NETSEIN i clients.
 
 ## Clients / projectes
 
-- **DiqSolucions/** — Web corporativa de Diq Solucions (consultoria Microsoft Dynamics 365 Business Central). Pàgina única estàtica, trilingüe (CA/ES/EN).
+- **DiqSolucions/** — Web corporativa de Diq Solucions (consultoria Microsoft Dynamics 365 Business Central). Pàgina única estàtica, trilingüe (CA/ES/EN), amb imatges a `DiqSolucions/assets/`.
 
-## Publicació
+## Publicar amb GitHub Pages
 
-Cada projecte és una carpeta amb el seu `index.html` autònom. Per publicar amb GitHub Pages, configurar la font a la branca `main`.
+Settings → Pages → Source: `main` → carpeta arrel. La web quedarà a `/DiqSolucions/`.

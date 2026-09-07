@@ -60,7 +60,7 @@
 
   *{box-sizing:border-box}
   body{
-    margin:0;background:var(--bg);color:var(--ink);
+    margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
     font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     line-height:1.6;-webkit-font-smoothing:antialiased;
   }
@@ -124,6 +124,8 @@
   }
   .hero .wrap{position:relative;z-index:1;padding-top:80px;padding-bottom:82px}
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
+  .hero-grid>*{min-width:0}
+  .hero-points{margin-top:16px;color:rgba(255,255,255,.72);font-size:.86rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.02em}
   .hero .eyebrow{color:#8FBAEC}
   .hero .eyebrow::before{background:#8FBAEC}
   .hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:800;margin:18px 0 20px;color:#fff}
@@ -190,26 +192,23 @@
 
   /* ---------- Process ---------- */
   .process{background:var(--surface-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:step}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 20px}
   .step{position:relative;padding-top:20px}
-  .step .num{font-family:"Archivo";font-weight:800;font-size:.95rem;color:#fff;background:var(--accent);width:34px;height:34px;border-radius:10px;display:grid;place-items:center;margin-bottom:16px}
+  .step .stephead{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+  .step .num{font-family:"Archivo";font-weight:800;font-size:.85rem;color:#fff;background:var(--accent);width:31px;height:31px;border-radius:9px;display:grid;place-items:center;flex:none;font-variant-numeric:tabular-nums}
+  .step .emoji{font-size:1.25rem;line-height:1}
   .step::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--line)}
   .step:first-child::before{background:var(--accent)}
-  .step h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;font-family:"Archivo"}
-  .step p{font-size:.9rem;color:var(--muted);line-height:1.56}
+  .step h3{font-size:1rem;font-weight:700;margin-bottom:7px;font-family:"Archivo"}
+  .step p{font-size:.88rem;color:var(--muted);line-height:1.55}
 
-  /* ---------- Why ---------- */
-  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:34px}
-  .why-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-  .why-card .wico{width:40px;height:40px;border-radius:10px;background:var(--accent-ghost);color:var(--accent);display:grid;place-items:center;margin-bottom:14px}
-  .why-card .wico svg{width:21px;height:21px}
-  .why-card p{font-size:.95rem;color:var(--ink-soft);line-height:1.56}
-  .why-note{
-    display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);
-    border:1px dashed var(--line);border-radius:var(--radius);padding:18px 20px;color:var(--muted);font-size:.9rem;
-  }
-  .why-note .ni{color:var(--warm);flex:none;margin-top:2px}
-  .why-note .ni svg{width:18px;height:18px;display:block}
+  /* ---------- Why (ordre de prioritats) ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .why-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden}
+  .why-card .bignum{position:absolute;top:-14px;right:8px;font-family:"Archivo";font-weight:800;font-size:4.6rem;line-height:1;color:var(--accent-ghost);z-index:0}
+  .why-card .word{font-family:"IBM Plex Mono";font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);position:relative;z-index:1}
+  .why-card h3{font-family:"Archivo";font-weight:800;font-size:1.45rem;margin:7px 0 9px;letter-spacing:-.02em;position:relative;z-index:1}
+  .why-card p{font-size:.9rem;color:var(--muted);line-height:1.55;position:relative;z-index:1}
 
   /* ---------- Stats band ---------- */
   .statsband{background:var(--surface);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:40px 0}
@@ -220,7 +219,7 @@
   .stat .sl{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.4}
 
   /* ---------- Sobre / consultor ---------- */
-  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:center}
+  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:start}
   .photo-ph{
     aspect-ratio:4/5;border-radius:18px;border:2px dashed var(--line);
     background:var(--surface-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
@@ -242,6 +241,37 @@
   .partner-ph .mslogo i:nth-child(3){background:#00A4EF}.partner-ph .mslogo i:nth-child(4){background:#FFB900}
   .partner-ph .pt{font-size:.76rem;line-height:1.3}
   .partner-ph .pt b{color:var(--ink-soft);font-weight:600;display:block;font-size:.86rem}
+
+  /* ---------- Lead / consultor chain ---------- */
+  .lead-text{font-size:1.12rem;color:var(--ink-soft);max-width:62ch;line-height:1.6}
+  .chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:30px}
+  .chain .node{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:600;font-size:.9rem;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .chain .arw{color:var(--accent);font-weight:700;font-size:1.05rem}
+
+  /* ---------- No development ---------- */
+  .nodev-card{display:flex;gap:20px;align-items:flex-start;background:var(--accent-ghost);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
+  .nodev-card .nd-ico{width:46px;height:46px;border-radius:12px;background:var(--accent);color:#fff;display:grid;place-items:center;flex:none}
+  .nodev-card .nd-ico svg{width:24px;height:24px}
+  .nodev-card p{color:var(--ink-soft);font-size:1.04rem;line-height:1.6;max-width:72ch}
+
+  /* ---------- Go-live band ---------- */
+  .goband{background:var(--surface-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+  .goband .gwrap{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+  .goband .g-ico{width:54px;height:54px;border-radius:15px;background:var(--accent-ghost);color:var(--accent);display:grid;place-items:center;flex:none}
+  .goband .g-ico svg{width:27px;height:27px}
+  .goband h3{font-family:"Archivo";font-weight:700;font-size:1.35rem;margin-bottom:9px;letter-spacing:-.01em}
+  .goband p{color:var(--ink-soft);line-height:1.62;max-width:78ch}
+
+  /* ---------- About quote & fields ---------- */
+  .about-quote{margin-top:20px;padding:16px 20px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:0 10px 10px 0;font-family:"Archivo";font-weight:600;font-size:1.08rem;color:var(--ink);line-height:1.5}
+  .about-fields{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:16px;font-size:.88rem;color:var(--muted)}
+  .about-fields b{color:var(--ink-soft);font-weight:600}
+
+  /* ---------- Tagline band ---------- */
+  .tagband{background:#0A1626}
+  .tagband .twrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px;text-align:center}
+  .tagband h2{font-family:"Archivo";font-weight:800;font-size:clamp(1.4rem,3vw,2rem);color:#fff;letter-spacing:-.02em;max-width:26ch;margin:0 auto}
+  .tagband .hl{color:#5AA1EA}
 
   /* ---------- Contact ---------- */
   .contact{background:linear-gradient(155deg,var(--accent-strong),var(--accent));color:#fff;border:0}
@@ -301,6 +331,7 @@
     .about-grid{grid-template-columns:1fr;gap:28px}
     .photo-ph{max-width:280px}
     .contact .wrap{grid-template-columns:1fr;gap:34px}
+    .goband .gwrap{grid-template-columns:1fr;gap:16px}
     .stats{grid-template-columns:1fr 1fr;gap:26px 18px}
     .stat:nth-child(2){border-right:0}
     .nav-phone{display:none}
@@ -340,8 +371,9 @@
       <div class="hero-grid">
         <div>
           <span class="eyebrow" data-i18n="hero_eyebrow">Microsoft Dynamics 365 Business Central</span>
-          <h1 data-i18n="hero_title">T'ajudem a treure tot el potencial de <span class="hl">Business Central</span></h1>
-          <p class="lead" data-i18n="hero_lead">Consultoria especialitzada en implantació i adaptació de Business Central: analitzem com treballa cada departament de la teva empresa i configurem l'ERP perquè s'adapti a tu, no al revés.</p>
+          <h1 data-i18n="hero_title">Business Central no s'implanta sol. L'implanta un <span class="hl">consultor que entén el teu negoci</span>.</h1>
+          <p class="lead" data-i18n="hero_lead">A Diq Solucions analitzo com treballa realment la teva empresa, dissenyem junts els processos i configurem Business Central perquè l'ERP treballi per vosaltres.</p>
+          <p class="hero-points" data-i18n="hero_points">Un consultor responsable · Un projecte adaptat a la teva empresa · Acompanyament després del Go-Live</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contacte" data-i18n="hero_cta">Sol·licita una consultoria inicial</a>
             <a class="btn btn-ghost" href="#que-fem" data-i18n="hero_cta2">Veure què fem</a>
@@ -365,15 +397,33 @@
   <section class="challenge">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="challenge_eyebrow">El repte de canviar d'ERP</span>
+        <span class="eyebrow" data-i18n="challenge_eyebrow">El canvi d'ERP</span>
+        <h2 data-i18n="challenge_title">El canvi d'ERP no és un projecte informàtic</h2>
       </div>
-      <div class="challenge-grid">
-        <p class="big" data-i18n="challenge_big">Canviar de sistema de gestió no és només un projecte tècnic. És un canvi que afecta com compra el teu equip, com factura, com controla l'estoc o com tanca el mes.</p>
-        <div class="accent-line">
-          <p data-i18n="challenge_p1">Moltes implantacions fallen no perquè el programari no funcioni, sinó perquè ningú va traduir els processos reals de l'empresa al nou sistema.</p>
-          <p style="margin-top:16px" data-i18n="challenge_p2">A Diq Solucions no partim de l'ERP cap a l'empresa. Partim de com treballa cada equip —Finances, Compres, Vendes, Magatzem, Producció— i configurem Business Central perquè encaixi amb aquesta manera de treballar.</p>
-        </div>
+      <p class="lead-text" data-i18n="challenge_body">Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no comencem per Business Central. Comencem per la teva empresa.</p>
+    </div>
+  </section>
+
+  <!-- CONSULTOR LIDERA -->
+  <section id="consultor">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="lead_eyebrow">El teu consultor</span>
+        <h2 data-i18n="lead_title">El teu consultor lidera el canvi</h2>
+        <p data-i18n="lead_body">No hauràs d'explicar el teu negoci a una persona diferent a cada fase. El teu consultor coneix tot el recorregut, de principi a fi.</p>
       </div>
+      <div class="chain" id="chain"></div>
+    </div>
+  </section>
+
+  <!-- METHOD (Mètode Diq) -->
+  <section class="process" id="metode">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="process_eyebrow">Mètode Diq</span>
+        <h2 data-i18n="process_title">Vuit passos, un sol responsable</h2>
+      </div>
+      <div class="steps" id="stepsGrid"></div>
     </div>
   </section>
 
@@ -381,30 +431,34 @@
   <section id="que-fem">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="areas_eyebrow">Què fem</span>
-        <h2 data-i18n="areas_title">Implantació i adaptació per àrea funcional</h2>
-        <p data-i18n="areas_intro">Treballem Business Central perquè cada departament tingui exactament el que necessita.</p>
+        <span class="eyebrow" data-i18n="areas_eyebrow">Per àrea funcional</span>
+        <h2 data-i18n="areas_title">Business Central per dins de la teva empresa</h2>
+        <p data-i18n="areas_intro">Adapto cada àrea a com treballa realment el teu equip, no a un manual genèric.</p>
       </div>
       <div class="areas-grid" id="areasGrid"></div>
     </div>
   </section>
 
-  <!-- PROCESS -->
+  <!-- NO DEV -->
   <section class="process">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="process_eyebrow">Com treballem</span>
-        <h2 data-i18n="process_title">Del diagnòstic a l'acompanyament</h2>
+        <span class="eyebrow" data-i18n="nodev_eyebrow">Criteri, no sobrecost</span>
+        <h2 data-i18n="nodev_title">No tot necessita un desenvolupament</h2>
       </div>
-      <div class="steps" id="stepsGrid"></div>
+      <div class="nodev-card">
+        <span class="nd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+        <p data-i18n="nodev_body">Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.</p>
+      </div>
     </div>
   </section>
 
-  <!-- WHY -->
+  <!-- WHY (ordre de prioritats) -->
   <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="why_eyebrow">Per què Diq Solucions</span>
+        <span class="eyebrow" data-i18n="why_eyebrow">El nostre ordre</span>
+        <h2 data-i18n="why_title">Primer consultoria. Després tecnologia.</h2>
       </div>
       <div class="why-grid" id="whyGrid"></div>
     </div>
@@ -414,8 +468,8 @@
   <section class="process" id="sobre">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="about_eyebrow">Sobre Diq Solucions</span>
-        <h2 data-i18n="about_title">La persona darrere del projecte</h2>
+        <span class="eyebrow" data-i18n="about_eyebrow">Coneix el teu consultor</span>
+        <h2 data-i18n="about_title">Un sol responsable, de principi a fi</h2>
       </div>
       <div class="about-grid">
         <div class="photo-ph" id="photoSlot">
@@ -424,7 +478,11 @@
         </div>
         <div class="about-bio">
           <p class="big" data-i18n="about_big">«Soc [Nom], consultor especialitzat en Microsoft Dynamics 365 Business Central.»</p>
-          <p data-i18n="about_p">[Breu presentació en primera persona: la teva experiència, el teu enfocament i per què acompanyes les empreses a treure partit de l'ERP. Aquest text és un espai reservat a completar.]</p>
+          <div class="about-fields">
+            <span><b data-i18n="about_lbl_exp">Experiència</b> · <span data-i18n="about_val_exp">[anys / projectes — a completar]</span></span>
+            <span><b data-i18n="about_lbl_spec">Especialitats</b> · <span data-i18n="about_val_spec">[àrees de BC — a completar]</span></span>
+          </div>
+          <p class="about-quote" data-i18n="about_quote">«El meu objectiu no és que aprenguis a utilitzar Business Central. El meu objectiu és que Business Central t'ajudi a treballar millor.»</p>
           <div class="proof-row">
             <div class="partner-ph">
               <span class="mslogo"><i></i><i></i><i></i><i></i></span>
@@ -432,6 +490,17 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GO-LIVE -->
+  <section class="goband">
+    <div class="wrap gwrap">
+      <span class="g-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.9a2 2 0 0 0-3 0Z"/><path d="M12 15l-3-3a11 11 0 0 1 6-8c2.5 0 4 1.5 4 4a11 11 0 0 1-8 6Z"/><path d="M15 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg></span>
+      <div>
+        <h3 data-i18n="golive_title">Després del Go-Live, seguim</h3>
+        <p data-i18n="golive_body">Posar l'ERP en marxa no vol dir que el projecte s'hagi acabat. No vull que depenguis de mi: m'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l'enteniment de Business Central.</p>
       </div>
     </div>
   </section>
@@ -474,6 +543,13 @@
       </form>
     </div>
   </section>
+
+  <!-- TAGLINE -->
+  <section class="tagband">
+    <div class="twrap">
+      <h2 data-i18n="tagline">La diferència no és l'ERP. És <span class="hl">qui l'implanta</span>.</h2>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -504,10 +580,10 @@ const CONSULTANT_PHOTO = "assets/consultant.jpg";
 /* Xifres de la banda de prova social. Pots canviar els valors quan tinguis
    anys d'experiència / nombre de projectes reals. Ara hi ha dades certes del servei. */
 const STATS = [
+  {value:"1", ca:"Consultor responsable de tot el projecte", es:"Consultor responsable de todo el proyecto", en:"One consultant responsible for the whole project"},
+  {value:"8",  ca:"Passos del Mètode Diq", es:"Pasos del Método Diq", en:"Steps in the Diq Method"},
   {value:"10", ca:"Àrees funcionals de Business Central", es:"Áreas funcionales de Business Central", en:"Business Central functional areas"},
-  {value:"4",  ca:"Fases del nostre mètode", es:"Fases de nuestro método", en:"Steps in our method"},
-  {value:"3",  ca:"Idiomes d'atenció · CA · ES · EN", es:"Idiomas de atención · CA · ES · EN", en:"Languages · CA · ES · EN"},
-  {value:"100%", ca:"Especialitzats en Business Central", es:"Especializados en Business Central", en:"Focused on Business Central"}
+  {value:"100%", ca:"Especialitzat en Business Central", es:"Especializado en Business Central", en:"Focused on Business Central"}
 ];
 
 /* ---------------- Icons ---------------- */
@@ -569,40 +645,59 @@ const AREAS = [
 ];
 
 const STEPS = [
-  {ca:{t:'Diagnòstic',d:'Analitzem els teus processos actuals, departament per departament, i detectem què necessita cada equip del nou sistema.'},
-   es:{t:'Diagnóstico',d:'Analizamos tus procesos actuales, departamento por departamento, y detectamos qué necesita cada equipo del nuevo sistema.'},
-   en:{t:'Diagnosis',d:'We analyze your current processes, department by department, and identify what each team needs from the new system.'}},
-  {ca:{t:'Configuració i migració',d:'Adaptem Business Central a la teva operativa real i migrem les dades sense interrompre la teva activitat.'},
-   es:{t:'Configuración y migración',d:'Adaptamos Business Central a tu operativa real y migramos los datos sin interrumpir tu actividad.'},
-   en:{t:'Configuration & migration',d:'We adapt Business Central to your real operations and migrate your data without disrupting the business.'}},
-  {ca:{t:'Formació per rol',d:'Formem cada perfil d\'usuari en les funcions que realment farà servir, no en un manual genèric.'},
-   es:{t:'Formación por rol',d:'Formamos a cada perfil de usuario en las funciones que realmente va a usar, no en un manual genérico.'},
-   en:{t:'Role-based training',d:'We train each user profile on the functions they\'ll actually use — not a generic manual.'}},
-  {ca:{t:'Acompanyament',d:'Seguim al teu costat després de l\'arrencada, per resoldre dubtes i ajustar el que calgui sobre la marxa.'},
-   es:{t:'Acompañamiento',d:'Seguimos a tu lado después del arranque, para resolver dudas y ajustar lo que haga falta sobre la marcha.'},
-   en:{t:'Ongoing support',d:'We stay with you after go-live, resolving issues and fine-tuning the setup as needed.'}}
+  {e:'🔎',ca:{t:'Entendre',d:'Conec l\'empresa: parlo amb direcció i amb els usuaris.'},
+   es:{t:'Entender',d:'Conozco la empresa: hablo con dirección y con los usuarios.'},
+   en:{t:'Understand',d:'I get to know the company: I talk to management and users.'}},
+  {e:'🧩',ca:{t:'Qüestionar',d:'Analitzo com es fan realment les coses i documento els processos.'},
+   es:{t:'Cuestionar',d:'Analizo cómo se hacen realmente las cosas y documento los procesos.'},
+   en:{t:'Question',d:'I analyze how things really work and document the processes.'}},
+  {e:'💡',ca:{t:'Dissenyar',d:'Defineixo com hauria de funcionar cada procés: què mantenir, millorar o eliminar.'},
+   es:{t:'Diseñar',d:'Defino cómo debería funcionar cada proceso: qué mantener, mejorar o eliminar.'},
+   en:{t:'Design',d:'I define how each process should work: what to keep, improve or drop.'}},
+  {e:'⚙️',ca:{t:'Configurar',d:'Porto el disseny a Business Central i gestiono les decisions amb el partner.'},
+   es:{t:'Configurar',d:'Llevo el diseño a Business Central y gestiono las decisiones con el partner.'},
+   en:{t:'Configure',d:'I take the design to Business Central and manage the decisions with the partner.'}},
+  {e:'🤝',ca:{t:'Provar',d:'Validem amb usuaris reals sobre casos reals.'},
+   es:{t:'Probar',d:'Validamos con usuarios reales sobre casos reales.'},
+   en:{t:'Validate',d:'We validate with real users on real cases.'}},
+  {e:'🎓',ca:{t:'Formar',d:'Adapto la formació a cada lloc de treball segons la seva responsabilitat.'},
+   es:{t:'Formar',d:'Adapto la formación a cada puesto según su responsabilidad.'},
+   en:{t:'Train',d:'I tailor the training to each role and its responsibilities.'}},
+  {e:'🚀',ca:{t:'Arrencar',d:'Acompanyo la migració, les proves i el Go-Live.'},
+   es:{t:'Arrancar',d:'Acompaño la migración, las pruebas y el Go-Live.'},
+   en:{t:'Go live',d:'I accompany the migration, the testing and the go-live.'}},
+  {e:'📈',ca:{t:'Millorar',d:'Seguim evolucionant el sistema després de la implantació, com a mínim 1 any.'},
+   es:{t:'Mejorar',d:'Seguimos evolucionando el sistema tras la implantación, como mínimo 1 año.'},
+   en:{t:'Improve',d:'We keep evolving the system after go-live, for at least one year.'}}
 ];
 
 const WHY = [
-  {icon:'quality',
-   ca:'Especialistes en Microsoft Dynamics 365 Business Central, no en ERP en general.',
-   es:'Especialistas en Microsoft Dynamics 365 Business Central, no en ERP en general.',
-   en:'Specialists in Microsoft Dynamics 365 Business Central — not generalist ERP consultants.'},
-  {icon:'management',
-   ca:'Treballem per àrea funcional, amb focus en com opera realment cada equip.',
-   es:'Trabajamos por área funcional, con foco en cómo opera realmente cada equipo.',
-   en:'We work by functional area, focused on how each team actually operates.'},
-  {icon:'crm',
-   ca:'Acompanyament des del diagnòstic inicial fins a la formació i el suport post-implantació.',
-   es:'Acompañamiento desde el diagnóstico inicial hasta la formación y el soporte post-implantación.',
-   en:'Support from initial diagnosis through training and post-implementation help.'}
+  {n:'1r',
+   ca:{t:'Consultoria',d:'Entendre el negoci i dissenyar amb tu els processos. Aquí és on es guanya o es perd el projecte.'},
+   es:{t:'Consultoría',d:'Entender el negocio y diseñar contigo los procesos. Aquí es donde se gana o se pierde el proyecto.'},
+   en:{t:'Consultancy',d:'Understanding the business and designing the processes with you. This is where the project is won or lost.'}},
+  {n:'2n',
+   ca:{t:'Business Central',d:'Configurar l\'ERP a partir d\'aquest disseny, no al revés.'},
+   es:{t:'Business Central',d:'Configurar el ERP a partir de ese diseño, no al revés.'},
+   en:{t:'Business Central',d:'Configuring the ERP from that design — not the other way around.'}},
+  {n:'3r',
+   ca:{t:'Tecnologia',d:'Desenvolupaments i integracions, només quan realment aporten valor.'},
+   es:{t:'Tecnología',d:'Desarrollos e integraciones, solo cuando realmente aportan valor.'},
+   en:{t:'Technology',d:'Custom development and integrations, only when they truly add value.'}}
 ];
+
+const CHAIN = {
+  ca:['Empresa','Processos','Decisions','Configuració','Usuaris','Evolució'],
+  es:['Empresa','Procesos','Decisiones','Configuración','Usuarios','Evolución'],
+  en:['Company','Processes','Decisions','Configuration','Users','Evolution']
+};
 
 const I18N = {
   nav_cta:{ca:'Parla amb nosaltres',es:'Habla con nosotros',en:'Talk to us'},
   hero_eyebrow:{ca:'Microsoft Dynamics 365 Business Central',es:'Microsoft Dynamics 365 Business Central',en:'Microsoft Dynamics 365 Business Central'},
-  hero_title:{ca:'T\'ajudem a treure tot el potencial de <span class="hl">Business Central</span>',es:'Te ayudamos a que tu empresa aproveche todo el potencial de <span class="hl">Business Central</span>',en:'We help your business get the full value out of <span class="hl">Business Central</span>'},
-  hero_lead:{ca:'Consultoria especialitzada en implantació i adaptació de Business Central: analitzem com treballa cada departament de la teva empresa i configurem l\'ERP perquè s\'adapti a tu, no al revés.',es:'Consultoría especializada en implantación y adaptación de Business Central: analizamos cómo trabaja cada departamento de tu empresa y configuramos el ERP para que se adapte a ti, no al revés.',en:'Specialized consultancy in Business Central implementation and adaptation: we analyze how each department actually works and configure the ERP to fit you — not the other way around.'},
+  hero_title:{ca:'Business Central no s\'implanta sol. L\'implanta un <span class="hl">consultor que entén el teu negoci</span>.',es:'Business Central no se implanta solo. Lo implanta un <span class="hl">consultor que entiende tu negocio</span>.',en:'Business Central doesn\'t implement itself. It\'s implemented by a <span class="hl">consultant who understands your business</span>.'},
+  hero_lead:{ca:'A Diq Solucions analitzo com treballa realment la teva empresa, dissenyem junts els processos i configurem Business Central perquè l\'ERP treballi per vosaltres.',es:'En Diq Solucions analizo cómo trabaja realmente tu empresa, diseñamos juntos los procesos y configuramos Business Central para que el ERP trabaje para vosotros.',en:'At Diq Solucions I analyze how your company really works, we design the processes together and configure Business Central so the ERP works for you.'},
+  hero_points:{ca:'Un consultor responsable · Un projecte adaptat a la teva empresa · Acompanyament després del Go-Live',es:'Un consultor responsable · Un proyecto adaptado a tu empresa · Acompañamiento después del Go-Live',en:'One responsible consultant · A project tailored to your company · Support after go-live'},
   hero_cta:{ca:'Sol·licita una consultoria inicial',es:'Solicita una consultoría inicial',en:'Request an initial consultation'},
   hero_cta2:{ca:'Veure què fem',es:'Ver qué hacemos',en:'See what we do'},
   panel_title:{ca:'ADAPTEM L\'ERP A TU',es:'ADAPTAMOS EL ERP A TI',en:'WE FIT THE ERP TO YOU'},
@@ -610,24 +705,38 @@ const I18N = {
   panel_core:{ca:'Configuració de Business Central per àrea',es:'Configuración de Business Central por área',en:'Business Central configured by area'},
   panel_b:{ca:'Cada persona l\'usa des del primer dia',es:'Cada persona lo usa desde el primer día',en:'Everyone uses it from day one'},
   panel_foot:{ca:'Diagnòstic → Configuració → Formació → Acompanyament',es:'Diagnóstico → Configuración → Formación → Acompañamiento',en:'Diagnosis → Configuration → Training → Support'},
-  challenge_eyebrow:{ca:'El repte de canviar d\'ERP',es:'El reto de cambiar de ERP',en:'The challenge of switching ERPs'},
-  challenge_big:{ca:'Canviar de sistema de gestió no és només un projecte tècnic. És un canvi que afecta com compra el teu equip, com factura, com controla l\'estoc o com tanca el mes.',es:'Cambiar de sistema de gestión no es solo un proyecto técnico. Es un cambio que afecta a cómo compra tu equipo, cómo factura, cómo controla el stock o cómo cierra el mes.',en:'Switching your management system isn\'t just a technical project. It affects how your team buys, invoices, controls stock, or closes the month.'},
-  challenge_p1:{ca:'Moltes implantacions fallen no perquè el programari no funcioni, sinó perquè ningú va traduir els processos reals de l\'empresa al nou sistema.',es:'Muchas implantaciones fallan no porque el software no funcione, sino porque nadie tradujo los procesos reales de la empresa al nuevo sistema.',en:'Many implementations fail not because the software doesn\'t work, but because no one translated the company\'s real processes into the new system.'},
-  challenge_p2:{ca:'A Diq Solucions no partim de l\'ERP cap a l\'empresa. Partim de com treballa cada equip —Finances, Compres, Vendes, Magatzem, Producció— i configurem Business Central perquè encaixi amb aquesta manera de treballar.',es:'En Diq Solucions no partimos del ERP hacia la empresa. Partimos de cómo trabaja cada equipo —Finanzas, Compras, Ventas, Almacén, Producción— y configuramos Business Central para que encaje con esa forma de trabajar.',en:'At Diq Solucions we don\'t start from the ERP. We start from how each team works — Finance, Purchasing, Sales, Warehouse, Production — and configure Business Central to fit that reality.'},
-  areas_eyebrow:{ca:'Què fem',es:'Qué hacemos',en:'What we do'},
-  areas_title:{ca:'Implantació i adaptació per àrea funcional',es:'Implantación y adaptación por área funcional',en:'Implementation and adaptation by functional area'},
-  areas_intro:{ca:'Treballem Business Central perquè cada departament tingui exactament el que necessita.',es:'Trabajamos Business Central para que cada departamento tenga exactamente lo que necesita.',en:'We handle Business Central so every department gets exactly what it needs.'},
-  process_eyebrow:{ca:'Com treballem',es:'Cómo trabajamos',en:'How we work'},
-  process_title:{ca:'Del diagnòstic a l\'acompanyament',es:'Del diagnóstico al acompañamiento',en:'From diagnosis to ongoing support'},
-  why_eyebrow:{ca:'Per què Diq Solucions',es:'Por qué Diq Solucions',en:'Why Diq Solucions'},
-  about_eyebrow:{ca:'Sobre Diq Solucions',es:'Sobre Diq Solucions',en:'About Diq Solucions'},
-  about_title:{ca:'La persona darrere del projecte',es:'La persona detrás del proyecto',en:'The person behind the project'},
+  challenge_eyebrow:{ca:'El canvi d\'ERP',es:'El cambio de ERP',en:'Switching ERP'},
+  challenge_title:{ca:'El canvi d\'ERP no és un projecte informàtic',es:'El cambio de ERP no es un proyecto informático',en:'Switching ERP is not an IT project'},
+  challenge_body:{ca:'Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no comencem per Business Central. Comencem per la teva empresa.',es:'Afecta a cómo compras, vendes, produces, gestionas el almacén, facturas y tomas decisiones. Por eso no empezamos por Business Central. Empezamos por tu empresa.',en:'It affects how you buy, sell, produce, manage the warehouse, invoice and make decisions. That\'s why we don\'t start with Business Central. We start with your company.'},
+  lead_eyebrow:{ca:'El teu consultor',es:'Tu consultor',en:'Your consultant'},
+  lead_title:{ca:'El teu consultor lidera el canvi',es:'Tu consultor lidera el cambio',en:'Your consultant leads the change'},
+  lead_body:{ca:'No hauràs d\'explicar el teu negoci a una persona diferent a cada fase. El teu consultor coneix tot el recorregut, de principi a fi.',es:'No tendrás que explicar tu negocio a una persona diferente en cada fase. Tu consultor conoce todo el recorrido, de principio a fin.',en:'You won\'t have to explain your business to a different person at each phase. Your consultant knows the whole journey, end to end.'},
+  areas_eyebrow:{ca:'Per àrea funcional',es:'Por área funcional',en:'By functional area'},
+  areas_title:{ca:'Business Central per dins de la teva empresa',es:'Business Central por dentro de tu empresa',en:'Business Central across your company'},
+  areas_intro:{ca:'Adapto cada àrea a com treballa realment el teu equip, no a un manual genèric.',es:'Adapto cada área a cómo trabaja realmente tu equipo, no a un manual genérico.',en:'I adapt each area to how your team really works — not to a generic manual.'},
+  process_eyebrow:{ca:'Mètode Diq',es:'Método Diq',en:'The Diq Method'},
+  process_title:{ca:'Vuit passos, un sol responsable',es:'Ocho pasos, un solo responsable',en:'Eight steps, one person responsible'},
+  nodev_eyebrow:{ca:'Criteri, no sobrecost',es:'Criterio, no sobrecoste',en:'Judgement, not overspend'},
+  nodev_title:{ca:'No tot necessita un desenvolupament',es:'No todo necesita un desarrollo',en:'Not everything needs custom development'},
+  nodev_body:{ca:'Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.',es:'Antes de personalizar Business Central analizo qué puede resolverse con estándar, configuración, extensión o integración. Mi trabajo también consiste en decirte cuándo NO hace falta desarrollar.',en:'Before customizing Business Central I look at what can be solved with standard, configuration, an extension or an integration. Part of my job is telling you when you don\'t need to develop.'},
+  why_eyebrow:{ca:'El nostre ordre',es:'Nuestro orden',en:'Our order'},
+  why_title:{ca:'Primer consultoria. Després tecnologia.',es:'Primero consultoría. Después tecnología.',en:'Consultancy first. Technology later.'},
+  about_eyebrow:{ca:'Coneix el teu consultor',es:'Conoce a tu consultor',en:'Meet your consultant'},
+  about_title:{ca:'Un sol responsable, de principi a fi',es:'Un solo responsable, de principio a fin',en:'One person responsible, end to end'},
+  about_lbl_exp:{ca:'Experiència',es:'Experiencia',en:'Experience'},
+  about_val_exp:{ca:'[anys / projectes — a completar]',es:'[años / proyectos — a completar]',en:'[years / projects — to complete]'},
+  about_lbl_spec:{ca:'Especialitats',es:'Especialidades',en:'Specialties'},
+  about_val_spec:{ca:'[àrees de BC — a completar]',es:'[áreas de BC — a completar]',en:'[BC areas — to complete]'},
+  about_quote:{ca:'«El meu objectiu no és que aprenguis a utilitzar Business Central. El meu objectiu és que Business Central t\'ajudi a treballar millor.»',es:'«Mi objetivo no es que aprendas a utilizar Business Central. Mi objetivo es que Business Central te ayude a trabajar mejor.»',en:'"My goal isn\'t for you to learn how to use Business Central. My goal is for Business Central to help you work better."'},
+  golive_title:{ca:'Després del Go-Live, seguim',es:'Después del Go-Live, seguimos',en:'After go-live, we keep going'},
+  golive_body:{ca:'Posar l\'ERP en marxa no vol dir que el projecte s\'hagi acabat. No vull que depenguis de mi: m\'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l\'enteniment de Business Central.',es:'Poner el ERP en marcha no significa que el proyecto haya terminado. No quiero que dependas de mí: me anticipo a vuestras necesidades para que los equipos sean cada vez más autónomos y tomen decisiones con criterio desde el entendimiento de Business Central.',en:'Going live doesn\'t mean the project is over. I don\'t want you to depend on me: I anticipate your needs so your teams become ever more autonomous and make sound decisions from a real understanding of Business Central.'},
+  tagline:{ca:'La diferència no és l\'ERP. És <span class="hl">qui l\'implanta</span>.',es:'La diferencia no está en el ERP. Está en <span class="hl">quién lo implanta</span>.',en:'The difference isn\'t the ERP. It\'s <span class="hl">who implements it</span>.'},
   about_photo:{ca:'Foto del consultor',es:'Foto del consultor',en:'Consultant photo'},
   about_big:{ca:'«Soc [Nom], consultor especialitzat en Microsoft Dynamics 365 Business Central.»',es:'«Soy [Nombre], consultor especializado en Microsoft Dynamics 365 Business Central.»',en:'"I\'m [Name], a consultant specialized in Microsoft Dynamics 365 Business Central."'},
   about_p:{ca:'[Breu presentació en primera persona: la teva experiència, el teu enfocament i per què acompanyes les empreses a treure partit de l\'ERP. Aquest text és un espai reservat a completar.]',es:'[Breve presentación en primera persona: tu experiencia, tu enfoque y por qué acompañas a las empresas a sacar partido del ERP. Este texto es un espacio reservado a completar.]',en:'[A short first-person intro: your experience, your approach and why you help companies get the most out of their ERP. This text is a placeholder to be completed.]'},
   about_partner:{ca:'Espai per al distintiu (quan el tingueu)',es:'Espacio para el distintivo (cuando lo tengáis)',en:'Space for the badge (once available)'},
-  contact_title:{ca:'Preparat perquè la teva empresa tregui partit de Business Central?',es:'¿Preparado para que tu empresa saque partido a Business Central?',en:'Ready to get your business running on Business Central the right way?'},
-  contact_sub:{ca:'Demana una consultoria inicial sense compromís. Analitzem la teva operativa i t\'expliquem com Business Central pot encaixar-hi.',es:'Pide una consultoría inicial sin compromiso. Analizamos tu operativa y te explicamos cómo Business Central puede encajar.',en:'Request a no-commitment initial consultation. We analyze your operations and show how Business Central can fit.'},
+  contact_title:{ca:'Estàs pensant a canviar d\'ERP?',es:'¿Estás pensando en cambiar de ERP?',en:'Thinking about switching ERP?'},
+  contact_sub:{ca:'No comencis per una demo. Comença parlant amb qui entendrà la teva empresa.',es:'No empieces por una demo. Empieza hablando con quien va a entender tu empresa.',en:'Don\'t start with a demo. Start by talking to someone who will understand your business.'},
   contact_email_label:{ca:'Email',es:'Email',en:'Email'},
   contact_phone_label:{ca:'Telèfon',es:'Teléfono',en:'Phone'},
   footer:{ca:'Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions',es:'Consultoría Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions',en:'Microsoft Dynamics 365 Business Central consultancy · © 2026 Diq Solucions'},
@@ -661,7 +770,7 @@ function renderAreas(){
 function renderSteps(){
   document.getElementById('stepsGrid').innerHTML = STEPS.map((s,i)=>`
     <div class="step">
-      <div class="num">${i+1}</div>
+      <div class="stephead"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="emoji">${s.e}</span></div>
       <h3>${s[lang].t}</h3>
       <p>${s[lang].d}</p>
     </div>`).join('');
@@ -669,9 +778,14 @@ function renderSteps(){
 function renderWhy(){
   document.getElementById('whyGrid').innerHTML = WHY.map(w=>`
     <div class="why-card">
-      <span class="wico">${ICONS[w.icon]}</span>
-      <p>${w[lang]}</p>
+      <span class="bignum">${w.n}</span>
+      <h3>${w[lang].t}</h3>
+      <p>${w[lang].d}</p>
     </div>`).join('');
+}
+function renderChain(){
+  const el=document.getElementById('chain'); if(!el) return;
+  el.innerHTML = CHAIN[lang].map((n,i)=>(i?'<span class="arw">→</span>':'')+`<span class="node">${n}</span>`).join('');
 }
 function renderStats(){
   document.getElementById('statsGrid').innerHTML = STATS.map(s=>`
@@ -691,7 +805,7 @@ function setLang(l){
   lang = l;
   document.documentElement.setAttribute('lang', l);
   document.querySelectorAll('.langsw button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.lang===l)));
-  applyI18n(); renderAreas(); renderSteps(); renderWhy(); renderStats();
+  applyI18n(); renderAreas(); renderSteps(); renderWhy(); renderStats(); renderChain();
   const pv=document.getElementById('privacyLink'); if(pv) pv.href=FORM.privacyUrl||'#';
   try{ localStorage.setItem('diq_lang', l); }catch(e){}
 }
