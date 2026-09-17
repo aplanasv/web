@@ -22,6 +22,8 @@
     --shadow-sm:0 1px 2px rgba(12,26,43,.05),0 4px 14px -8px rgba(12,26,43,.12);
     --maxw:1120px;
     --radius:14px;
+    --ease: cubic-bezier(.4,0,.2,1);
+    --ease-out: cubic-bezier(.16,1,.3,1);
     font-size:17px;
   }
   @media (prefers-color-scheme: dark){
@@ -60,10 +62,18 @@
   }
 
   *{box-sizing:border-box}
+  @media (prefers-reduced-motion: no-preference){
+    html{scroll-behavior:smooth}
+  }
   body{
     margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
     font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     line-height:1.6;-webkit-font-smoothing:antialiased;
+    transition:background-color .35s var(--ease-out),color .35s var(--ease-out);
+  }
+  /* smooth color-scheme swap on theme toggle */
+  header,.area,.why-card,.form-card,.panel,.chain .node,.partner-ph{
+    transition:background-color .35s var(--ease-out),border-color .35s var(--ease-out),color .35s var(--ease-out),box-shadow .35s var(--ease-out);
   }
   h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.02em}
   p{margin:0}
@@ -96,21 +106,24 @@
   .langsw button{
     border:0;background:transparent;cursor:pointer;color:var(--muted);
     font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.72rem;letter-spacing:.05em;
-    padding:5px 10px;border-radius:999px;transition:.18s;
+    padding:5px 10px;border-radius:999px;transition:.16s var(--ease);
   }
   .langsw button:hover{color:var(--ink)}
+  .langsw button:active{transform:scale(.92)}
   .langsw button[aria-pressed="true"]{background:var(--accent);color:#fff}
   .btn{
     display:inline-flex;align-items:center;gap:.5em;text-decoration:none;cursor:pointer;
     font-weight:600;font-size:.92rem;border-radius:999px;padding:10px 18px;border:1px solid transparent;
-    transition:.18s;white-space:nowrap;
+    transition:.16s var(--ease);white-space:nowrap;
   }
   .btn-primary{background:var(--accent);color:#fff;box-shadow:var(--shadow-sm)}
   .btn-primary:hover{background:var(--accent-strong)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn:active{transform:scale(.97)}
   .nav .btn{padding:9px 16px;font-size:.86rem}
-  .theme-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:.18s;flex:none}
+  .theme-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:.16s var(--ease);flex:none}
+  .theme-btn:active{transform:scale(.9)}
   .theme-btn:hover{color:var(--ink);border-color:var(--accent)}
   .theme-btn svg{width:18px;height:18px}
 
@@ -176,9 +189,9 @@
   .areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
   .area{
     background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px;transition:.2s;position:relative;
+    padding:22px;transition:.25s var(--ease-out);position:relative;
   }
-  .area:hover{border-color:var(--accent);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+  .area:hover{border-color:var(--accent);box-shadow:var(--shadow-sm);transform:translateY(-3px)}
   .area .ahead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
   .area .aico{
     width:42px;height:42px;border-radius:10px;flex:none;display:grid;place-items:center;
@@ -284,9 +297,10 @@
   .cmethod{
     display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;
     background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);
-    padding:13px 18px;border-radius:12px;transition:.18s;
+    padding:13px 18px;border-radius:12px;transition:.16s var(--ease);
   }
   .cmethod:hover{background:rgba(255,255,255,.2)}
+  .cmethod:active{transform:scale(.98)}
   .cmethod .cm-ico{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.16);display:grid;place-items:center;flex:none}
   .cmethod .cm-ico svg{width:19px;height:19px}
   .cmethod .cm-label{font-family:"IBM Plex Mono";font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.75);text-align:left}
@@ -319,7 +333,7 @@
   .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}
   .foot .brand{font-size:1rem}
 
-  .fade{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .fade{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
   .fade.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
 
