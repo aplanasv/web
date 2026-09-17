@@ -1,6 +1,11 @@
-<title>Diq Solucions</title>
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diq Solucions</title>
 <meta name="description" content="Consultoria especialitzada en Microsoft Dynamics 365 Business Central." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C5DA8'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -78,13 +83,10 @@
   h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.02em}
   p{margin:0}
   a{color:inherit}
+  .hl{color:var(--accent)}
+  ::selection{background:var(--accent-ghost)}
+  html{scrollbar-color:var(--line) transparent}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  .eyebrow{
-    font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;
-    text-transform:uppercase;letter-spacing:.18em;color:var(--accent);
-    display:inline-flex;align-items:center;gap:.6em;
-  }
-  .eyebrow::before{content:"";width:22px;height:1px;background:var(--accent);display:inline-block}
 
   /* ---------- Header ---------- */
   header{
@@ -121,6 +123,7 @@
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
   .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.6;cursor:not-allowed}
   .nav .btn{padding:9px 16px;font-size:.86rem}
   .theme-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:.16s var(--ease);flex:none}
   .theme-btn:active{transform:scale(.9)}
@@ -137,53 +140,24 @@
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:center}
   .hero-grid>*{min-width:0}
   .hero-points{margin-top:16px;color:rgba(255,255,255,.72);font-size:.86rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.02em}
-  .hero .eyebrow{color:#8FBAEC}
-  .hero .eyebrow::before{background:#8FBAEC}
   .hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:800;margin:18px 0 20px;color:#fff}
   .hero h1 .hl{color:#5AA1EA}
   .hero .lead{font-size:1.12rem;color:rgba(255,255,255,.84);max-width:46ch}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
   .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28)}
   .hero .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+  .hero .btn-primary{box-shadow:0 10px 26px -10px rgba(0,0,0,.55)}
   .hero-photo{border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.14)}
   .hero-photo img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center}
-
-  /* hero panel: the thesis, visualized */
-  .panel{
-    background:var(--surface);border:1px solid var(--line);border-radius:18px;
-    box-shadow:var(--shadow);overflow:hidden;
-  }
-  .panel-top{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line-soft);background:var(--surface-2)}
-  .panel-top .dot{width:9px;height:9px;border-radius:999px;background:var(--line);flex:none}
-  .panel-top .ptitle{font-family:"IBM Plex Mono";font-size:.72rem;letter-spacing:.08em;color:var(--muted);margin-left:6px}
-  .panel-body{padding:18px 16px}
-  .flowrow{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-  .flowrow:last-child{margin-bottom:0}
-  .chip{
-    flex:1;display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:10px;
-    background:var(--surface-2);border:1px solid var(--line-soft);font-size:.82rem;font-weight:500;color:var(--ink-soft);
-  }
-  .chip .ico{width:16px;height:16px;color:var(--accent);flex:none}
-  .flow-arrow{color:var(--muted);flex:none;display:grid;place-items:center}
-  .flow-arrow svg{width:16px;height:16px;display:block}
-  .flow-core{
-    text-align:center;padding:12px;border-radius:10px;font-weight:600;font-size:.86rem;
-    background:linear-gradient(145deg,var(--accent),var(--accent-strong));color:#fff;
-  }
-  .panel-foot{padding:13px 16px;border-top:1px solid var(--line-soft);font-size:.8rem;color:var(--muted);font-family:"IBM Plex Mono"}
 
   /* ---------- Section scaffolding ---------- */
   section{padding:76px 0}
   .section-head{max-width:58ch;margin-bottom:44px}
-  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;margin:14px 0 0}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;margin:0}
   .section-head p{color:var(--muted);font-size:1.05rem;margin-top:14px}
 
   /* ---------- Challenge ---------- */
   .challenge{background:var(--surface);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
-  .challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px}
-  .challenge-grid .big{font-family:"Archivo";font-weight:600;font-size:1.25rem;line-height:1.4;color:var(--ink);letter-spacing:-.01em}
-  .challenge-grid p{color:var(--ink-soft)}
-  .challenge-grid .accent-line{border-left:3px solid var(--accent);padding-left:20px}
 
   /* ---------- Areas ---------- */
   .areas-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
@@ -207,7 +181,8 @@
   .step{position:relative;padding-top:20px}
   .step .stephead{display:flex;align-items:center;gap:10px;margin-bottom:13px}
   .step .num{font-family:"Archivo";font-weight:800;font-size:.85rem;color:#fff;background:var(--accent);width:31px;height:31px;border-radius:9px;display:grid;place-items:center;flex:none;font-variant-numeric:tabular-nums}
-  .step .emoji{font-size:1.25rem;line-height:1}
+  .step .sico{width:28px;height:28px;border-radius:8px;background:var(--accent-ghost);color:var(--accent);display:grid;place-items:center;flex:none}
+  .step .sico svg{width:16px;height:16px;display:block}
   .step::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--line)}
   .step:first-child::before{background:var(--accent)}
   .step h3{font-size:1rem;font-weight:700;margin-bottom:7px;font-family:"Archivo"}
@@ -266,7 +241,8 @@
   .goband p{color:var(--ink-soft);line-height:1.62;max-width:78ch}
 
   /* ---------- About quote & fields ---------- */
-  .about-quote{margin-top:20px;padding:16px 20px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:0 10px 10px 0;font-family:"Archivo";font-weight:600;font-size:1.08rem;color:var(--ink);line-height:1.5}
+  .about-quote{position:relative;margin-top:20px;padding:20px 22px 20px 50px;background:var(--surface-2);border-radius:14px;font-family:"Archivo";font-weight:600;font-size:1.08rem;color:var(--ink);line-height:1.5}
+  .about-quote::before{content:"\201C";position:absolute;top:.05em;left:16px;font-family:"Archivo";font-weight:800;font-size:2.2rem;line-height:1;color:var(--accent)}
   .about-fields{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:16px;font-size:.88rem;color:var(--muted)}
   .about-fields b{color:var(--ink-soft);font-weight:600}
 
@@ -329,7 +305,6 @@
 
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .challenge-grid{grid-template-columns:1fr;gap:26px}
     .steps{grid-template-columns:1fr 1fr}
     .why-grid{grid-template-columns:1fr}
     .contact .wrap{grid-template-columns:1fr;gap:34px}
@@ -346,6 +321,8 @@
     .hero .wrap{padding-top:52px;padding-bottom:56px}
   }
 </style>
+</head>
+<body>
 
 <header>
   <div class="wrap nav">
@@ -370,7 +347,6 @@
     <div class="wrap">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow" data-i18n="hero_eyebrow">Microsoft Dynamics 365 Business Central</span>
           <h1 data-i18n="hero_title">Business Central no s'implanta sol. L'implanta un <span class="hl">consultor que entén el teu negoci</span>.</h1>
           <p class="lead" data-i18n="hero_lead">A Diq Solucions analitzo com treballa realment la teva empresa, dissenyo els processos amb tu i configuro Business Central perquè l'ERP treballi per a la teva empresa.</p>
           <p class="hero-points" data-i18n="hero_points">Un consultor responsable · Un projecte adaptat a la teva empresa · Acompanyament després del Go-Live</p>
@@ -397,7 +373,6 @@
   <section class="challenge">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="challenge_eyebrow">El canvi d'ERP</span>
         <h2 data-i18n="challenge_title">El canvi d'ERP no és un projecte informàtic</h2>
       </div>
       <p class="lead-text" data-i18n="challenge_body">Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no començo per Business Central. Començo per la teva empresa.</p>
@@ -408,7 +383,6 @@
   <section id="consultor">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="lead_eyebrow">El teu consultor</span>
         <h2 data-i18n="lead_title">El teu consultor lidera el canvi</h2>
         <p data-i18n="lead_body">No hauràs d'explicar el teu negoci a una persona diferent a cada fase. El teu consultor coneix tot el recorregut, de principi a fi.</p>
       </div>
@@ -420,8 +394,7 @@
   <section class="process" id="metode">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="process_eyebrow">Mètode Diq</span>
-        <h2 data-i18n="process_title">Vuit passos, un sol responsable</h2>
+        <h2 data-i18n="process_title">El <span class="hl">Mètode Diq</span>: vuit passos, un sol responsable</h2>
       </div>
       <div class="steps" id="stepsGrid"></div>
     </div>
@@ -431,7 +404,6 @@
   <section id="que-fem">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="areas_eyebrow">Per àrea funcional</span>
         <h2 data-i18n="areas_title">Business Central per dins de la teva empresa</h2>
         <p data-i18n="areas_intro">Adapto cada àrea a com treballa realment el teu equip, no a un manual genèric.</p>
       </div>
@@ -443,12 +415,11 @@
   <section class="process">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="nodev_eyebrow">Criteri, no sobrecost</span>
         <h2 data-i18n="nodev_title">No tot necessita un desenvolupament</h2>
       </div>
       <div class="nodev-card">
         <span class="nd-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-        <p data-i18n="nodev_body">Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.</p>
+        <p data-i18n="nodev_body"><strong>Criteri, no sobrecost.</strong> Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.</p>
       </div>
     </div>
   </section>
@@ -457,7 +428,6 @@
   <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="why_eyebrow">El meu ordre</span>
         <h2 data-i18n="why_title">Primer consultoria. Després tecnologia.</h2>
       </div>
       <div class="why-grid" id="whyGrid"></div>
@@ -468,7 +438,6 @@
   <section class="process" id="sobre">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="about_eyebrow">Coneix el teu consultor</span>
         <h2 data-i18n="about_title">Un sol responsable, de principi a fi</h2>
       </div>
       <div class="about-grid">
@@ -584,7 +553,14 @@ const ICONS = {
   crm:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 6.5a3 3 0 0 1 0 5.8M17.5 19a5.5 5.5 0 0 0-2.3-4.5"/></svg>',
   management:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V4M4 20h16M8 16l3.5-4 3 2.5L20 7"/></svg>',
   it:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg>',
-  quality:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 9.5C8 22.3 5 18.4 5 14V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>'
+  quality:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 9.5C8 22.3 5 18.4 5 14V6l7-3Z"/><path d="m9 12 2 2 4-4"/></svg>',
+  understand:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>',
+  question:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9.3a2.8 2.8 0 1 1 4.1 2.5c-.9.5-1.3 1-1.3 2.1"/><path d="M12 17.3h.01"/></svg>',
+  lightbulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6.5 6.5 0 0 0-4 11.6c.7.6 1 1.4 1 2.4h6c0-1 .3-1.8 1-2.4A6.5 6.5 0 0 0 12 3Z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 13.5a7.7 7.7 0 0 0 0-3l1.7-1.3-1.7-3-2 .8a7.7 7.7 0 0 0-2.6-1.5L14.5 3h-5l-.3 2.5a7.7 7.7 0 0 0-2.6 1.5l-2-.8-1.7 3L4.6 10.5a7.7 7.7 0 0 0 0 3l-1.7 1.3 1.7 3 2-.8a7.7 7.7 0 0 0 2.6 1.5L9.5 21h5l.3-2.5a7.7 7.7 0 0 0 2.6-1.5l2 .8 1.7-3Z"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>',
+  graduate:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5 12 5l10 4.5-10 4.5-10-4.5Z"/><path d="M6 11.5v4c0 1.4 2.7 3 6 3s6-1.6 6-3v-4"/><path d="M21 9.5v6"/></svg>',
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.9a2 2 0 0 0-3 0Z"/><path d="M12 15l-3-3a11 11 0 0 1 6-8c2.5 0 4 1.5 4 4a11 11 0 0 1-8 6Z"/><path d="M15 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg>'
 };
 
 /* ---------------- Content ---------------- */
@@ -632,28 +608,28 @@ const AREAS = [
 ];
 
 const STEPS = [
-  {e:'🔎',ca:{t:'Entendre',d:'Conec l\'empresa: parlo amb direcció i amb els usuaris.'},
+  {icon:'understand',ca:{t:'Entendre',d:'Conec l\'empresa: parlo amb direcció i amb els usuaris.'},
    es:{t:'Entender',d:'Conozco la empresa: hablo con dirección y con los usuarios.'},
    en:{t:'Understand',d:'I get to know the company: I talk to management and users.'}},
-  {e:'🧩',ca:{t:'Qüestionar',d:'Analitzo com es fan realment les coses i documento els processos.'},
+  {icon:'question',ca:{t:'Qüestionar',d:'Analitzo com es fan realment les coses i documento els processos.'},
    es:{t:'Cuestionar',d:'Analizo cómo se hacen realmente las cosas y documento los procesos.'},
    en:{t:'Question',d:'I analyze how things really work and document the processes.'}},
-  {e:'💡',ca:{t:'Dissenyar',d:'Defineixo com hauria de funcionar cada procés: què mantenir, millorar o eliminar.'},
+  {icon:'lightbulb',ca:{t:'Dissenyar',d:'Defineixo com hauria de funcionar cada procés: què mantenir, millorar o eliminar.'},
    es:{t:'Diseñar',d:'Defino cómo debería funcionar cada proceso: qué mantener, mejorar o eliminar.'},
    en:{t:'Design',d:'I define how each process should work: what to keep, improve or drop.'}},
-  {e:'⚙️',ca:{t:'Configurar',d:'Porto el disseny a Business Central i gestiono les decisions amb el partner.'},
+  {icon:'gear',ca:{t:'Configurar',d:'Porto el disseny a Business Central i gestiono les decisions amb el partner.'},
    es:{t:'Configurar',d:'Llevo el diseño a Business Central y gestiono las decisiones con el partner.'},
    en:{t:'Configure',d:'I take the design to Business Central and manage the decisions with the partner.'}},
-  {e:'🤝',ca:{t:'Provar',d:'Valido amb usuaris reals sobre casos reals.'},
+  {icon:'check',ca:{t:'Provar',d:'Valido amb usuaris reals sobre casos reals.'},
    es:{t:'Probar',d:'Valido con usuarios reales sobre casos reales.'},
    en:{t:'Validate',d:'I validate with real users on real cases.'}},
-  {e:'🎓',ca:{t:'Formar',d:'Adapto la formació a cada lloc de treball segons la seva responsabilitat.'},
+  {icon:'graduate',ca:{t:'Formar',d:'Adapto la formació a cada lloc de treball segons la seva responsabilitat.'},
    es:{t:'Formar',d:'Adapto la formación a cada puesto según su responsabilidad.'},
    en:{t:'Train',d:'I tailor the training to each role and its responsibilities.'}},
-  {e:'🚀',ca:{t:'Arrencar',d:'Acompanyo la migració, les proves i el Go-Live.'},
+  {icon:'rocket',ca:{t:'Arrencar',d:'Acompanyo la migració, les proves i el Go-Live.'},
    es:{t:'Arrancar',d:'Acompaño la migración, las pruebas y el Go-Live.'},
    en:{t:'Go live',d:'I accompany the migration, the testing and the go-live.'}},
-  {e:'📈',ca:{t:'Millorar',d:'Segueixo evolucionant el sistema després de la implantació, com a mínim 1 any.'},
+  {icon:'management',ca:{t:'Millorar',d:'Segueixo evolucionant el sistema després de la implantació, com a mínim 1 any.'},
    es:{t:'Mejorar',d:'Sigo evolucionando el sistema tras la implantación, como mínimo 1 año.'},
    en:{t:'Improve',d:'I keep evolving the system after go-live, for at least one year.'}}
 ];
@@ -681,34 +657,21 @@ const CHAIN = {
 
 const I18N = {
   nav_cta:{ca:'Parla amb mi',es:'Habla conmigo',en:'Talk to me'},
-  hero_eyebrow:{ca:'Microsoft Dynamics 365 Business Central',es:'Microsoft Dynamics 365 Business Central',en:'Microsoft Dynamics 365 Business Central'},
   hero_title:{ca:'Business Central no s\'implanta sol. L\'implanta un <span class="hl">consultor que entén el teu negoci</span>.',es:'Business Central no se implanta solo. Lo implanta un <span class="hl">consultor que entiende tu negocio</span>.',en:'Business Central doesn\'t implement itself. It\'s implemented by a <span class="hl">consultant who understands your business</span>.'},
   hero_lead:{ca:'A Diq Solucions analitzo com treballa realment la teva empresa, dissenyo els processos amb tu i configuro Business Central perquè l\'ERP treballi per a la teva empresa.',es:'En Diq Solucions analizo cómo trabaja realmente tu empresa, diseño los procesos contigo y configuro Business Central para que el ERP trabaje para tu empresa.',en:'At Diq Solucions I analyze how your company really works, I design the processes with you and configure Business Central so the ERP works for you.'},
   hero_points:{ca:'Un consultor responsable · Un projecte adaptat a la teva empresa · Acompanyament després del Go-Live',es:'Un consultor responsable · Un proyecto adaptado a tu empresa · Acompañamiento después del Go-Live',en:'One responsible consultant · A project tailored to your company · Support after go-live'},
   hero_cta:{ca:'Sol·licita una consultoria inicial',es:'Solicita una consultoría inicial',en:'Request an initial consultation'},
   hero_cta2:{ca:'Veure què faig',es:'Ver qué hago',en:'See what I do'},
-  panel_title:{ca:'ADAPTEM L\'ERP A TU',es:'ADAPTAMOS EL ERP A TI',en:'WE FIT THE ERP TO YOU'},
-  panel_a:{ca:'Com treballa el teu equip',es:'Cómo trabaja tu equipo',en:'How your team works'},
-  panel_core:{ca:'Configuració de Business Central per àrea',es:'Configuración de Business Central por área',en:'Business Central configured by area'},
-  panel_b:{ca:'Cada persona l\'usa des del primer dia',es:'Cada persona lo usa desde el primer día',en:'Everyone uses it from day one'},
-  panel_foot:{ca:'Diagnòstic → Configuració → Formació → Acompanyament',es:'Diagnóstico → Configuración → Formación → Acompañamiento',en:'Diagnosis → Configuration → Training → Support'},
-  challenge_eyebrow:{ca:'El canvi d\'ERP',es:'El cambio de ERP',en:'Switching ERP'},
   challenge_title:{ca:'El canvi d\'ERP no és un projecte informàtic',es:'El cambio de ERP no es un proyecto informático',en:'Switching ERP is not an IT project'},
   challenge_body:{ca:'Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no començo per Business Central. Començo per la teva empresa.',es:'Afecta a cómo compras, vendes, produces, gestionas el almacén, facturas y tomas decisiones. Por eso no empiezo por Business Central. Empiezo por tu empresa.',en:'It affects how you buy, sell, produce, manage the warehouse, invoice and make decisions. That\'s why I don\'t start with Business Central. I start with your company.'},
-  lead_eyebrow:{ca:'El teu consultor',es:'Tu consultor',en:'Your consultant'},
   lead_title:{ca:'El teu consultor lidera el canvi',es:'Tu consultor lidera el cambio',en:'Your consultant leads the change'},
   lead_body:{ca:'No hauràs d\'explicar el teu negoci a una persona diferent a cada fase. El teu consultor coneix tot el recorregut, de principi a fi.',es:'No tendrás que explicar tu negocio a una persona diferente en cada fase. Tu consultor conoce todo el recorrido, de principio a fin.',en:'You won\'t have to explain your business to a different person at each phase. Your consultant knows the whole journey, end to end.'},
-  areas_eyebrow:{ca:'Per àrea funcional',es:'Por área funcional',en:'By functional area'},
   areas_title:{ca:'Business Central per dins de la teva empresa',es:'Business Central por dentro de tu empresa',en:'Business Central across your company'},
   areas_intro:{ca:'Adapto cada àrea a com treballa realment el teu equip, no a un manual genèric.',es:'Adapto cada área a cómo trabaja realmente tu equipo, no a un manual genérico.',en:'I adapt each area to how your team really works — not to a generic manual.'},
-  process_eyebrow:{ca:'Mètode Diq',es:'Método Diq',en:'The Diq Method'},
-  process_title:{ca:'Vuit passos, un sol responsable',es:'Ocho pasos, un solo responsable',en:'Eight steps, one person responsible'},
-  nodev_eyebrow:{ca:'Criteri, no sobrecost',es:'Criterio, no sobrecoste',en:'Judgement, not overspend'},
+  process_title:{ca:'El <span class="hl">Mètode Diq</span>: vuit passos, un sol responsable',es:'El <span class="hl">Método Diq</span>: ocho pasos, un solo responsable',en:'The <span class="hl">Diq Method</span>: eight steps, one person responsible'},
   nodev_title:{ca:'No tot necessita un desenvolupament',es:'No todo necesita un desarrollo',en:'Not everything needs custom development'},
-  nodev_body:{ca:'Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.',es:'Antes de personalizar Business Central analizo qué puede resolverse con estándar, configuración, extensión o integración. Mi trabajo también consiste en decirte cuándo NO hace falta desarrollar.',en:'Before customizing Business Central I look at what can be solved with standard, configuration, an extension or an integration. Part of my job is telling you when you don\'t need to develop.'},
-  why_eyebrow:{ca:'El meu ordre',es:'Mi orden',en:'My order'},
+  nodev_body:{ca:'<strong>Criteri, no sobrecost.</strong> Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.',es:'<strong>Criterio, no sobrecoste.</strong> Antes de personalizar Business Central analizo qué puede resolverse con estándar, configuración, extensión o integración. Mi trabajo también consiste en decirte cuándo NO hace falta desarrollar.',en:'<strong>Judgement, not overspend.</strong> Before customizing Business Central I look at what can be solved with standard, configuration, an extension or an integration. Part of my job is telling you when you don\'t need to develop.'},
   why_title:{ca:'Primer consultoria. Després tecnologia.',es:'Primero consultoría. Después tecnología.',en:'Consultancy first. Technology later.'},
-  about_eyebrow:{ca:'Coneix el teu consultor',es:'Conoce a tu consultor',en:'Meet your consultant'},
   about_title:{ca:'Un sol responsable, de principi a fi',es:'Un solo responsable, de principio a fin',en:'One person responsible, end to end'},
   about_lbl_exp:{ca:'Experiència',es:'Experiencia',en:'Experience'},
   about_val_exp:{ca:'[anys / projectes — a completar]',es:'[años / proyectos — a completar]',en:'[years / projects — to complete]'},
@@ -719,7 +682,6 @@ const I18N = {
   golive_body:{ca:'Posar l\'ERP en marxa no vol dir que el projecte s\'hagi acabat. No vull que depenguis de mi: m\'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l\'enteniment de Business Central.',es:'Poner el ERP en marcha no significa que el proyecto haya terminado. No quiero que dependas de mí: me anticipo a vuestras necesidades para que los equipos sean cada vez más autónomos y tomen decisiones con criterio desde el entendimiento de Business Central.',en:'Going live doesn\'t mean the project is over. I don\'t want you to depend on me: I anticipate your needs so your teams become ever more autonomous and make sound decisions from a real understanding of Business Central.'},
   tagline:{ca:'La diferència no és l\'ERP. És <span class="hl">qui l\'implanta</span>.',es:'La diferencia no está en el ERP. Está en <span class="hl">quién lo implanta</span>.',en:'The difference isn\'t the ERP. It\'s <span class="hl">who implements it</span>.'},
   about_big:{ca:'«Sota la marca Diq Solucions hi ha un únic consultor, especialitzat en Microsoft Dynamics 365 Business Central.»',es:'«Bajo la marca Diq Solucions hay un único consultor, especializado en Microsoft Dynamics 365 Business Central.»',en:'"Behind the Diq Solucions brand is a single consultant, specialized in Microsoft Dynamics 365 Business Central."'},
-  about_p:{ca:'[Breu presentació en primera persona: la teva experiència, el teu enfocament i per què acompanyes les empreses a treure partit de l\'ERP. Aquest text és un espai reservat a completar.]',es:'[Breve presentación en primera persona: tu experiencia, tu enfoque y por qué acompañas a las empresas a sacar partido del ERP. Este texto es un espacio reservado a completar.]',en:'[A short first-person intro: your experience, your approach and why you help companies get the most out of their ERP. This text is a placeholder to be completed.]'},
   about_partner:{ca:'Espai per al distintiu (quan el tingueu)',es:'Espacio para el distintivo (cuando lo tengáis)',en:'Space for the badge (once available)'},
   contact_title:{ca:'Estàs pensant a canviar d\'ERP?',es:'¿Estás pensando en cambiar de ERP?',en:'Thinking about switching ERP?'},
   contact_sub:{ca:'No comencis per una demo. Comença parlant amb qui entendrà la teva empresa.',es:'No empieces por una demo. Empieza hablando con quien va a entender tu empresa.',en:'Don\'t start with a demo. Start by talking to someone who will understand your business.'},
@@ -755,7 +717,7 @@ function renderAreas(){
 function renderSteps(){
   document.getElementById('stepsGrid').innerHTML = STEPS.map((s,i)=>`
     <div class="step">
-      <div class="stephead"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="emoji">${s.e}</span></div>
+      <div class="stephead"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="sico">${ICONS[s.icon]}</span></div>
       <h3>${s[lang].t}</h3>
       <p>${s[lang].d}</p>
     </div>`).join('');
@@ -849,3 +811,5 @@ themeBtn.addEventListener('click',()=>{
   document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 })();
 </script>
+</body>
+</html>
