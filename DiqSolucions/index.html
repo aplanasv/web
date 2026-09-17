@@ -96,13 +96,9 @@
     border-bottom:1px solid var(--line-soft);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
-  .brand{display:flex;align-items:center;gap:11px;font-family:"Archivo";font-weight:800;font-size:1.12rem;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
-  .brand .mark{
-    width:30px;height:30px;border-radius:8px;flex:none;
-    background:linear-gradient(145deg,var(--accent),var(--accent-strong));
-    display:grid;place-items:center;color:#fff;font-weight:800;font-size:.95rem;
-    box-shadow:var(--shadow-sm);
-  }
+  .brand{display:flex;align-items:center;text-decoration:none}
+  .brand-badge{background:#fff;border-radius:10px;padding:6px 12px;display:flex;align-items:center;box-shadow:var(--shadow-sm);border:1px solid var(--line-soft)}
+  .brand-badge img{display:block;height:24px;width:auto}
   .nav-right{display:flex;align-items:center;gap:10px}
   .langsw{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
   .langsw button{
@@ -295,7 +291,6 @@
   /* ---------- Footer ---------- */
   footer{background:var(--bg);padding:34px 0}
   .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}
-  .foot .brand{font-size:1rem}
 
   .fade{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
   .fade.in{opacity:1;transform:none}
@@ -326,7 +321,7 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><span class="mark">D</span>Diq Solucions</a>
+    <a class="brand" href="#top"><span class="brand-badge"><img src="assets/logo.png" alt="Diq Solucions"></span></a>
     <div class="nav-right">
       <div class="langsw" role="group" aria-label="Idioma">
         <button data-lang="ca" aria-pressed="true">CA</button>
@@ -515,7 +510,7 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="#top"><span class="mark">D</span>Diq Solucions</a>
+    <a class="brand" href="#top"><span class="brand-badge"><img src="assets/logo.png" alt="Diq Solucions"></span></a>
     <span data-i18n="footer">Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions</span>
   </div>
 </footer>
