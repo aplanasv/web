@@ -230,19 +230,7 @@
   .stat .sl{font-size:.82rem;color:var(--muted);margin-top:10px;line-height:1.4}
 
   /* ---------- Sobre / consultor ---------- */
-  .about-grid{display:grid;grid-template-columns:300px 1fr;gap:44px;align-items:start}
-  .brand-tile{
-    aspect-ratio:4/5;border-radius:18px;overflow:hidden;
-    background:linear-gradient(160deg,var(--accent),var(--accent-strong));
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
-    color:#fff;box-shadow:var(--shadow);
-  }
-  .brand-tile .bt-mark{
-    width:64px;height:64px;border-radius:16px;background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;
-    font-family:"Archivo";font-weight:800;font-size:1.8rem;
-  }
-  .brand-tile .bt-word{font-family:"Archivo";font-weight:700;font-size:1.1rem;text-align:center;line-height:1.3;letter-spacing:-.01em}
+  .about-grid{max-width:640px}
   .about-bio .big{font-family:"Archivo";font-weight:600;font-size:1.3rem;line-height:1.4;color:var(--ink);letter-spacing:-.01em;margin-bottom:16px}
   .about-bio p{color:var(--ink-soft)}
   .proof-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
@@ -344,8 +332,6 @@
     .challenge-grid{grid-template-columns:1fr;gap:26px}
     .steps{grid-template-columns:1fr 1fr}
     .why-grid{grid-template-columns:1fr}
-    .about-grid{grid-template-columns:1fr;gap:28px}
-    .brand-tile{max-width:280px}
     .contact .wrap{grid-template-columns:1fr;gap:34px}
     .goband .gwrap{grid-template-columns:1fr;gap:16px}
     .stats{grid-template-columns:1fr 1fr;gap:26px 18px}
@@ -373,7 +359,7 @@
       <button class="theme-btn" id="themeBtn" aria-label="Canvia el tema" title="Tema clar/fosc">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path class="sun" d="M12 3v2M12 19v2M5 5l1.4 1.4M17.6 17.6L19 19M3 12h2M19 12h2M5 19l1.4-1.4M17.6 6.4L19 5"/><circle cx="12" cy="12" r="3.6"/></svg>
       </button>
-      <a class="btn btn-primary contact-nav" href="#contacte" data-i18n="nav_cta">Parla amb nosaltres</a>
+      <a class="btn btn-primary contact-nav" href="#contacte" data-i18n="nav_cta">Parla amb mi</a>
     </div>
   </div>
 </header>
@@ -386,11 +372,11 @@
         <div>
           <span class="eyebrow" data-i18n="hero_eyebrow">Microsoft Dynamics 365 Business Central</span>
           <h1 data-i18n="hero_title">Business Central no s'implanta sol. L'implanta un <span class="hl">consultor que entén el teu negoci</span>.</h1>
-          <p class="lead" data-i18n="hero_lead">A Diq Solucions analitzo com treballa realment la teva empresa, dissenyem junts els processos i configurem Business Central perquè l'ERP treballi per vosaltres.</p>
+          <p class="lead" data-i18n="hero_lead">A Diq Solucions analitzo com treballa realment la teva empresa, dissenyo els processos amb tu i configuro Business Central perquè l'ERP treballi per a la teva empresa.</p>
           <p class="hero-points" data-i18n="hero_points">Un consultor responsable · Un projecte adaptat a la teva empresa · Acompanyament després del Go-Live</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contacte" data-i18n="hero_cta">Sol·licita una consultoria inicial</a>
-            <a class="btn btn-ghost" href="#que-fem" data-i18n="hero_cta2">Veure què fem</a>
+            <a class="btn btn-ghost" href="#que-fem" data-i18n="hero_cta2">Veure què faig</a>
           </div>
         </div>
         <div class="hero-photo fade">
@@ -414,7 +400,7 @@
         <span class="eyebrow" data-i18n="challenge_eyebrow">El canvi d'ERP</span>
         <h2 data-i18n="challenge_title">El canvi d'ERP no és un projecte informàtic</h2>
       </div>
-      <p class="lead-text" data-i18n="challenge_body">Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no comencem per Business Central. Comencem per la teva empresa.</p>
+      <p class="lead-text" data-i18n="challenge_body">Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no començo per Business Central. Començo per la teva empresa.</p>
     </div>
   </section>
 
@@ -471,7 +457,7 @@
   <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow" data-i18n="why_eyebrow">El nostre ordre</span>
+        <span class="eyebrow" data-i18n="why_eyebrow">El meu ordre</span>
         <h2 data-i18n="why_title">Primer consultoria. Després tecnologia.</h2>
       </div>
       <div class="why-grid" id="whyGrid"></div>
@@ -486,10 +472,6 @@
         <h2 data-i18n="about_title">Un sol responsable, de principi a fi</h2>
       </div>
       <div class="about-grid">
-        <div class="brand-tile" aria-hidden="true">
-          <span class="bt-mark">D</span>
-          <span class="bt-word">Diq<br>Solucions</span>
-        </div>
         <div class="about-bio">
           <p class="big" data-i18n="about_big">«Sota la marca Diq Solucions hi ha un únic consultor, especialitzat en Microsoft Dynamics 365 Business Central.»</p>
           <div class="about-fields">
@@ -513,7 +495,7 @@
     <div class="wrap gwrap">
       <span class="g-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.9a2 2 0 0 0-3 0Z"/><path d="M12 15l-3-3a11 11 0 0 1 6-8c2.5 0 4 1.5 4 4a11 11 0 0 1-8 6Z"/><path d="M15 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/></svg></span>
       <div>
-        <h3 data-i18n="golive_title">Després del Go-Live, seguim</h3>
+        <h3 data-i18n="golive_title">Després del Go-Live, continuo</h3>
         <p data-i18n="golive_body">Posar l'ERP en marxa no vol dir que el projecte s'hagi acabat. No vull que depenguis de mi: m'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l'enteniment de Business Central.</p>
       </div>
     </div>
@@ -523,7 +505,7 @@
   <section class="contact" id="contacte">
     <div class="wrap">
       <h2 data-i18n="contact_title">Preparat perquè la teva empresa tregui partit de Business Central?</h2>
-      <p class="csub" data-i18n="contact_sub">Demana una consultoria inicial sense compromís. Analitzem la teva operativa i t'expliquem com Business Central pot encaixar-hi.</p>
+      <p class="csub" data-i18n="contact_sub">No comencis per una demo. Comença parlant amb qui entendrà la teva empresa.</p>
       <div class="contact-methods">
         <a class="cmethod" id="emailLink" href="#">
           <span class="cm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
@@ -533,7 +515,7 @@
 
       <form id="contactForm" class="form-card">
         <div class="fh" data-i18n="form_title">Sol·licita la teva consultoria</div>
-        <div class="fsub" data-i18n="form_sub">Deixa'ns les teves dades i et contactem sense compromís.</div>
+        <div class="fsub" data-i18n="form_sub">Deixa'm les teves dades i et contacto sense compromís.</div>
         <input type="hidden" name="access_key" id="accessKey" value="">
         <input type="hidden" name="subject" value="Nova sol·licitud web · Diq Solucions">
         <input type="hidden" name="from_name" value="Web Diq Solucions">
@@ -546,7 +528,7 @@
           <div class="field"><label for="f_email" data-i18n="f_email">Email</label><input id="f_email" type="email" name="email" required></div>
           <div class="field"><label for="f_phone" data-i18n="f_phone">Telèfon</label><input id="f_phone" type="tel" name="telefon"></div>
         </div>
-        <div class="field"><label for="f_msg" data-i18n="f_msg">En què et podem ajudar?</label><textarea id="f_msg" name="missatge" rows="4"></textarea></div>
+        <div class="field"><label for="f_msg" data-i18n="f_msg">En què et puc ajudar?</label><textarea id="f_msg" name="missatge" rows="4"></textarea></div>
         <label class="consent"><input type="checkbox" name="consentiment" required value="Sí"><span data-i18n="f_consent">Accepto que es tractin les meves dades per contactar-me, segons la política de privacitat.</span></label>
         <button type="submit" class="btn btn-primary submit" data-i18n="f_submit">Enviar sol·licitud</button>
         <div class="form-msg" id="formMsg" hidden></div>
@@ -612,29 +594,29 @@ const AREAS = [
    es:{t:'Finanzas',d:'Contabilidad, tesorería, cobros, pagos, conciliación bancaria, presupuestos e informes financieros. Control financiero preciso y tareas repetitivas al mínimo.'},
    en:{t:'Finance',d:'Accounting, treasury, collections, payments, bank reconciliation, budgets and financial reporting. Precise financial control with repetitive tasks minimized.'}},
   {icon:'purchasing',
-   ca:{t:'Compres',d:'Comandes, recepcions, facturació de proveïdors, planificació d\'aprovisionament i gestió de preus. Adaptem el cicle complet a la teva manera de negociar i aprovisionar.'},
-   es:{t:'Compras',d:'Pedidos, recepciones, facturación de proveedores, planificación de aprovisionamiento y gestión de precios. Adaptamos el ciclo completo a tu forma de negociar y aprovisionar.'},
-   en:{t:'Purchasing',d:'Purchase orders, receipts, vendor invoicing, procurement planning and pricing. We adapt the full cycle to how you negotiate and procure.'}},
+   ca:{t:'Compres',d:'Comandes, recepcions, facturació de proveïdors, planificació d\'aprovisionament i gestió de preus. Adapto el cicle complet a la teva manera de negociar i aprovisionar.'},
+   es:{t:'Compras',d:'Pedidos, recepciones, facturación de proveedores, planificación de aprovisionamiento y gestión de precios. Adapto el ciclo completo a tu forma de negociar y aprovisionar.'},
+   en:{t:'Purchasing',d:'Purchase orders, receipts, vendor invoicing, procurement planning and pricing. I adapt the full cycle to how you negotiate and procure.'}},
   {icon:'sales',
-   ca:{t:'Vendes',d:'Ofertes, comandes, albarans, facturació, preus, descomptes i seguiment de clients. Dissenyem el procés comercial per vendre amb menys passos i menys errors.'},
-   es:{t:'Ventas',d:'Ofertas, pedidos, albaranes, facturación, precios, descuentos y seguimiento de clientes. Diseñamos el proceso comercial para vender con menos pasos y menos errores.'},
+   ca:{t:'Vendes',d:'Ofertes, comandes, albarans, facturació, preus, descomptes i seguiment de clients. Dissenyo el procés comercial per vendre amb menys passos i menys errors.'},
+   es:{t:'Ventas',d:'Ofertas, pedidos, albaranes, facturación, precios, descuentos y seguimiento de clientes. Diseño el proceso comercial para vender con menos pasos y menos errores.'},
    en:{t:'Sales',d:'Quotes, orders, delivery notes, invoicing, pricing, discounts and customer tracking. A sales process with fewer steps and fewer errors.'}},
   {icon:'production',
    ca:{t:'Producció',d:'Ordres de producció, llistes de materials (BOM), rutes, planificació de capacitat i control de costos. Per a empreses que fabriquen i necessiten visibilitat real.'},
    es:{t:'Producción',d:'Órdenes de producción, listas de materiales (BOM), rutas, planificación de capacidad y control de costes. Para empresas que fabrican y necesitan visibilidad real.'},
    en:{t:'Production',d:'Production orders, bills of materials (BOM), routings, capacity planning and cost control. For companies that manufacture and need real visibility.'}},
   {icon:'warehouse',
-   ca:{t:'Magatzem',d:'Gestió d\'inventari, ubicacions, moviments, recomptes i traçabilitat per lots i números de sèrie. Organitzem l\'estoc per reduir errors i millorar la traçabilitat.'},
-   es:{t:'Almacén',d:'Gestión de inventario, ubicaciones, movimientos, recuentos y trazabilidad por lotes y números de serie. Organizamos el stock para reducir errores y mejorar la trazabilidad.'},
-   en:{t:'Warehouse',d:'Inventory, locations, movements, counts and batch/serial traceability. We organize stock to cut operational errors and improve traceability.'}},
+   ca:{t:'Magatzem',d:'Gestió d\'inventari, ubicacions, moviments, recomptes i traçabilitat per lots i números de sèrie. Organitzo l\'estoc per reduir errors i millorar la traçabilitat.'},
+   es:{t:'Almacén',d:'Gestión de inventario, ubicaciones, movimientos, recuentos y trazabilidad por lotes y números de serie. Organizo el stock para reducir errores y mejorar la trazabilidad.'},
+   en:{t:'Warehouse',d:'Inventory, locations, movements, counts and batch/serial traceability. I organize stock to cut operational errors and improve traceability.'}},
   {icon:'projects',
    ca:{t:'Projectes',d:'Pressupostos de projecte, registre d\'hores, consum de recursos, facturació per fites i seguiment de rendibilitat. Per a empreses de serveis i negocis per projecte.'},
    es:{t:'Proyectos',d:'Presupuestos de proyecto, registro de horas, consumo de recursos, facturación por hitos y seguimiento de rentabilidad. Para empresas de servicios y negocios por proyecto.'},
    en:{t:'Projects',d:'Project budgets, time tracking, resource consumption, milestone billing and profitability tracking. For service companies and project-based businesses.'}},
   {icon:'crm',
-   ca:{t:'CRM',d:'Gestió de contactes, oportunitats comercials, segments i interaccions. Centralitzem la relació amb els clients perquè tot l\'equip treballi amb la mateixa informació.'},
-   es:{t:'CRM',d:'Gestión de contactos, oportunidades comerciales, segmentos e interacciones. Centralizamos la relación con clientes para que todo el equipo trabaje con la misma información.'},
-   en:{t:'CRM',d:'Contact management, sales opportunities, segments and interactions. We centralize customer relationships so the whole team works from the same information.'}},
+   ca:{t:'CRM',d:'Gestió de contactes, oportunitats comercials, segments i interaccions. Centralitzo la relació amb els clients perquè tot l\'equip treballi amb la mateixa informació.'},
+   es:{t:'CRM',d:'Gestión de contactos, oportunidades comerciales, segmentos e interacciones. Centralizo la relación con clientes para que todo el equipo trabaje con la misma información.'},
+   en:{t:'CRM',d:'Contact management, sales opportunities, segments and interactions. I centralize customer relationships so the whole team works from the same information.'}},
   {icon:'management',
    ca:{t:'Direcció',d:'Indicadors clau, informes executius i quadres de comandament. Visió global del negoci sense haver d\'entrar en el detall operatiu del dia a dia.'},
    es:{t:'Dirección',d:'Indicadores clave, informes ejecutivos y cuadros de mando. Visión global del negocio sin entrar en el detalle operativo del día a día.'},
@@ -644,9 +626,9 @@ const AREAS = [
    es:{t:'Administración IT',d:'Gestión de entornos, usuarios, permisos, extensiones e integraciones. Para que el sistema funcione de forma segura y estable detrás de todo lo demás.'},
    en:{t:'IT Administration',d:'Environment management, users, permissions, extensions and integrations. So the system runs securely and reliably behind everything else.'}},
   {icon:'quality',
-   ca:{t:'Qualitat',d:'Control de qualitat en recepció de compres, producció, magatzem i devolucions de client. Detectem el no conforme a temps i reduïm mermes i reclamacions.'},
-   es:{t:'Calidad',d:'Control de calidad en recepción de compras, producción, almacén y devoluciones de cliente. Detectamos lo no conforme a tiempo y reducimos mermas y reclamaciones.'},
-   en:{t:'Quality',d:'Quality control at purchase receiving, production, warehouse and customer returns. We catch non-conformities early and reduce waste and complaints.'}}
+   ca:{t:'Qualitat',d:'Control de qualitat en recepció de compres, producció, magatzem i devolucions de client. Detecto el no conforme a temps i redueixo mermes i reclamacions.'},
+   es:{t:'Calidad',d:'Control de calidad en recepción de compras, producción, almacén y devoluciones de cliente. Detecto lo no conforme a tiempo y reduzco mermas y reclamaciones.'},
+   en:{t:'Quality',d:'Quality control at purchase receiving, production, warehouse and customer returns. I catch non-conformities early and reduce waste and complaints.'}}
 ];
 
 const STEPS = [
@@ -662,18 +644,18 @@ const STEPS = [
   {e:'⚙️',ca:{t:'Configurar',d:'Porto el disseny a Business Central i gestiono les decisions amb el partner.'},
    es:{t:'Configurar',d:'Llevo el diseño a Business Central y gestiono las decisiones con el partner.'},
    en:{t:'Configure',d:'I take the design to Business Central and manage the decisions with the partner.'}},
-  {e:'🤝',ca:{t:'Provar',d:'Validem amb usuaris reals sobre casos reals.'},
-   es:{t:'Probar',d:'Validamos con usuarios reales sobre casos reales.'},
-   en:{t:'Validate',d:'We validate with real users on real cases.'}},
+  {e:'🤝',ca:{t:'Provar',d:'Valido amb usuaris reals sobre casos reals.'},
+   es:{t:'Probar',d:'Valido con usuarios reales sobre casos reales.'},
+   en:{t:'Validate',d:'I validate with real users on real cases.'}},
   {e:'🎓',ca:{t:'Formar',d:'Adapto la formació a cada lloc de treball segons la seva responsabilitat.'},
    es:{t:'Formar',d:'Adapto la formación a cada puesto según su responsabilidad.'},
    en:{t:'Train',d:'I tailor the training to each role and its responsibilities.'}},
   {e:'🚀',ca:{t:'Arrencar',d:'Acompanyo la migració, les proves i el Go-Live.'},
    es:{t:'Arrancar',d:'Acompaño la migración, las pruebas y el Go-Live.'},
    en:{t:'Go live',d:'I accompany the migration, the testing and the go-live.'}},
-  {e:'📈',ca:{t:'Millorar',d:'Seguim evolucionant el sistema després de la implantació, com a mínim 1 any.'},
-   es:{t:'Mejorar',d:'Seguimos evolucionando el sistema tras la implantación, como mínimo 1 año.'},
-   en:{t:'Improve',d:'We keep evolving the system after go-live, for at least one year.'}}
+  {e:'📈',ca:{t:'Millorar',d:'Segueixo evolucionant el sistema després de la implantació, com a mínim 1 any.'},
+   es:{t:'Mejorar',d:'Sigo evolucionando el sistema tras la implantación, como mínimo 1 año.'},
+   en:{t:'Improve',d:'I keep evolving the system after go-live, for at least one year.'}}
 ];
 
 const WHY = [
@@ -698,13 +680,13 @@ const CHAIN = {
 };
 
 const I18N = {
-  nav_cta:{ca:'Parla amb nosaltres',es:'Habla con nosotros',en:'Talk to us'},
+  nav_cta:{ca:'Parla amb mi',es:'Habla conmigo',en:'Talk to me'},
   hero_eyebrow:{ca:'Microsoft Dynamics 365 Business Central',es:'Microsoft Dynamics 365 Business Central',en:'Microsoft Dynamics 365 Business Central'},
   hero_title:{ca:'Business Central no s\'implanta sol. L\'implanta un <span class="hl">consultor que entén el teu negoci</span>.',es:'Business Central no se implanta solo. Lo implanta un <span class="hl">consultor que entiende tu negocio</span>.',en:'Business Central doesn\'t implement itself. It\'s implemented by a <span class="hl">consultant who understands your business</span>.'},
-  hero_lead:{ca:'A Diq Solucions analitzo com treballa realment la teva empresa, dissenyem junts els processos i configurem Business Central perquè l\'ERP treballi per vosaltres.',es:'En Diq Solucions analizo cómo trabaja realmente tu empresa, diseñamos juntos los procesos y configuramos Business Central para que el ERP trabaje para vosotros.',en:'At Diq Solucions I analyze how your company really works, we design the processes together and configure Business Central so the ERP works for you.'},
+  hero_lead:{ca:'A Diq Solucions analitzo com treballa realment la teva empresa, dissenyo els processos amb tu i configuro Business Central perquè l\'ERP treballi per a la teva empresa.',es:'En Diq Solucions analizo cómo trabaja realmente tu empresa, diseño los procesos contigo y configuro Business Central para que el ERP trabaje para tu empresa.',en:'At Diq Solucions I analyze how your company really works, I design the processes with you and configure Business Central so the ERP works for you.'},
   hero_points:{ca:'Un consultor responsable · Un projecte adaptat a la teva empresa · Acompanyament després del Go-Live',es:'Un consultor responsable · Un proyecto adaptado a tu empresa · Acompañamiento después del Go-Live',en:'One responsible consultant · A project tailored to your company · Support after go-live'},
   hero_cta:{ca:'Sol·licita una consultoria inicial',es:'Solicita una consultoría inicial',en:'Request an initial consultation'},
-  hero_cta2:{ca:'Veure què fem',es:'Ver qué hacemos',en:'See what we do'},
+  hero_cta2:{ca:'Veure què faig',es:'Ver qué hago',en:'See what I do'},
   panel_title:{ca:'ADAPTEM L\'ERP A TU',es:'ADAPTAMOS EL ERP A TI',en:'WE FIT THE ERP TO YOU'},
   panel_a:{ca:'Com treballa el teu equip',es:'Cómo trabaja tu equipo',en:'How your team works'},
   panel_core:{ca:'Configuració de Business Central per àrea',es:'Configuración de Business Central por área',en:'Business Central configured by area'},
@@ -712,7 +694,7 @@ const I18N = {
   panel_foot:{ca:'Diagnòstic → Configuració → Formació → Acompanyament',es:'Diagnóstico → Configuración → Formación → Acompañamiento',en:'Diagnosis → Configuration → Training → Support'},
   challenge_eyebrow:{ca:'El canvi d\'ERP',es:'El cambio de ERP',en:'Switching ERP'},
   challenge_title:{ca:'El canvi d\'ERP no és un projecte informàtic',es:'El cambio de ERP no es un proyecto informático',en:'Switching ERP is not an IT project'},
-  challenge_body:{ca:'Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no comencem per Business Central. Comencem per la teva empresa.',es:'Afecta a cómo compras, vendes, produces, gestionas el almacén, facturas y tomas decisiones. Por eso no empezamos por Business Central. Empezamos por tu empresa.',en:'It affects how you buy, sell, produce, manage the warehouse, invoice and make decisions. That\'s why we don\'t start with Business Central. We start with your company.'},
+  challenge_body:{ca:'Afecta com compres, véns, produeixes, gestiones el magatzem, factures i prens decisions. Per això no començo per Business Central. Començo per la teva empresa.',es:'Afecta a cómo compras, vendes, produces, gestionas el almacén, facturas y tomas decisiones. Por eso no empiezo por Business Central. Empiezo por tu empresa.',en:'It affects how you buy, sell, produce, manage the warehouse, invoice and make decisions. That\'s why I don\'t start with Business Central. I start with your company.'},
   lead_eyebrow:{ca:'El teu consultor',es:'Tu consultor',en:'Your consultant'},
   lead_title:{ca:'El teu consultor lidera el canvi',es:'Tu consultor lidera el cambio',en:'Your consultant leads the change'},
   lead_body:{ca:'No hauràs d\'explicar el teu negoci a una persona diferent a cada fase. El teu consultor coneix tot el recorregut, de principi a fi.',es:'No tendrás que explicar tu negocio a una persona diferente en cada fase. Tu consultor conoce todo el recorrido, de principio a fin.',en:'You won\'t have to explain your business to a different person at each phase. Your consultant knows the whole journey, end to end.'},
@@ -724,7 +706,7 @@ const I18N = {
   nodev_eyebrow:{ca:'Criteri, no sobrecost',es:'Criterio, no sobrecoste',en:'Judgement, not overspend'},
   nodev_title:{ca:'No tot necessita un desenvolupament',es:'No todo necesita un desarrollo',en:'Not everything needs custom development'},
   nodev_body:{ca:'Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.',es:'Antes de personalizar Business Central analizo qué puede resolverse con estándar, configuración, extensión o integración. Mi trabajo también consiste en decirte cuándo NO hace falta desarrollar.',en:'Before customizing Business Central I look at what can be solved with standard, configuration, an extension or an integration. Part of my job is telling you when you don\'t need to develop.'},
-  why_eyebrow:{ca:'El nostre ordre',es:'Nuestro orden',en:'Our order'},
+  why_eyebrow:{ca:'El meu ordre',es:'Mi orden',en:'My order'},
   why_title:{ca:'Primer consultoria. Després tecnologia.',es:'Primero consultoría. Después tecnología.',en:'Consultancy first. Technology later.'},
   about_eyebrow:{ca:'Coneix el teu consultor',es:'Conoce a tu consultor',en:'Meet your consultant'},
   about_title:{ca:'Un sol responsable, de principi a fi',es:'Un solo responsable, de principio a fin',en:'One person responsible, end to end'},
@@ -733,7 +715,7 @@ const I18N = {
   about_lbl_spec:{ca:'Especialitats',es:'Especialidades',en:'Specialties'},
   about_val_spec:{ca:'[àrees de BC — a completar]',es:'[áreas de BC — a completar]',en:'[BC areas — to complete]'},
   about_quote:{ca:'«El meu objectiu no és que aprenguis a utilitzar Business Central. El meu objectiu és que Business Central t\'ajudi a treballar millor.»',es:'«Mi objetivo no es que aprendas a utilizar Business Central. Mi objetivo es que Business Central te ayude a trabajar mejor.»',en:'"My goal isn\'t for you to learn how to use Business Central. My goal is for Business Central to help you work better."'},
-  golive_title:{ca:'Després del Go-Live, seguim',es:'Después del Go-Live, seguimos',en:'After go-live, we keep going'},
+  golive_title:{ca:'Després del Go-Live, continuo',es:'Después del Go-Live, continúo',en:'After go-live, I keep going'},
   golive_body:{ca:'Posar l\'ERP en marxa no vol dir que el projecte s\'hagi acabat. No vull que depenguis de mi: m\'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l\'enteniment de Business Central.',es:'Poner el ERP en marcha no significa que el proyecto haya terminado. No quiero que dependas de mí: me anticipo a vuestras necesidades para que los equipos sean cada vez más autónomos y tomen decisiones con criterio desde el entendimiento de Business Central.',en:'Going live doesn\'t mean the project is over. I don\'t want you to depend on me: I anticipate your needs so your teams become ever more autonomous and make sound decisions from a real understanding of Business Central.'},
   tagline:{ca:'La diferència no és l\'ERP. És <span class="hl">qui l\'implanta</span>.',es:'La diferencia no está en el ERP. Está en <span class="hl">quién lo implanta</span>.',en:'The difference isn\'t the ERP. It\'s <span class="hl">who implements it</span>.'},
   about_big:{ca:'«Sota la marca Diq Solucions hi ha un únic consultor, especialitzat en Microsoft Dynamics 365 Business Central.»',es:'«Bajo la marca Diq Solucions hay un único consultor, especializado en Microsoft Dynamics 365 Business Central.»',en:'"Behind the Diq Solucions brand is a single consultant, specialized in Microsoft Dynamics 365 Business Central."'},
@@ -744,17 +726,17 @@ const I18N = {
   contact_email_label:{ca:'Email',es:'Email',en:'Email'},
   footer:{ca:'Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions',es:'Consultoría Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions',en:'Microsoft Dynamics 365 Business Central consultancy · © 2026 Diq Solucions'},
   form_title:{ca:'Sol·licita la teva consultoria',es:'Solicita tu consultoría',en:'Request your consultation'},
-  form_sub:{ca:'Deixa\'ns les teves dades i et contactem sense compromís.',es:'Déjanos tus datos y te contactamos sin compromiso.',en:'Leave your details and we\'ll get back to you, no strings attached.'},
+  form_sub:{ca:'Deixa\'m les teves dades i et contacto sense compromís.',es:'Déjame tus datos y te contacto sin compromiso.',en:'Leave your details and I\'ll get back to you, no strings attached.'},
   f_name:{ca:'Nom i cognoms',es:'Nombre y apellidos',en:'Full name'},
   f_company:{ca:'Empresa',es:'Empresa',en:'Company'},
   f_email:{ca:'Email',es:'Email',en:'Email'},
   f_phone:{ca:'Telèfon',es:'Teléfono',en:'Phone'},
-  f_msg:{ca:'En què et podem ajudar?',es:'¿En qué podemos ayudarte?',en:'How can we help?'},
+  f_msg:{ca:'En què et puc ajudar?',es:'¿En qué puedo ayudarte?',en:'How can I help?'},
   f_consent:{ca:'Accepto que es tractin les meves dades per contactar-me, segons la <a href="#" id="privacyLink" target="_blank" rel="noopener">política de privacitat</a>.',es:'Acepto que se traten mis datos para contactarme, según la <a href="#" id="privacyLink" target="_blank" rel="noopener">política de privacidad</a>.',en:'I agree to my data being processed so you can contact me, per the <a href="#" id="privacyLink" target="_blank" rel="noopener">privacy policy</a>.'},
   f_submit:{ca:'Enviar sol·licitud',es:'Enviar solicitud',en:'Send request'},
   f_sending:{ca:'Enviant…',es:'Enviando…',en:'Sending…'},
-  f_ok:{ca:'Gràcies! Hem rebut la teva sol·licitud i et contactarem ben aviat.',es:'¡Gracias! Hemos recibido tu solicitud y te contactaremos muy pronto.',en:'Thanks! We\'ve received your request and will be in touch very soon.'},
-  f_err:{ca:'Hi ha hagut un problema en enviar. Torna-ho a provar o escriu-nos per email.',es:'Ha habido un problema al enviar. Inténtalo de nuevo o escríbenos por email.',en:'Something went wrong. Please try again or email us directly.'}
+  f_ok:{ca:'Gràcies! He rebut la teva sol·licitud i et contactaré ben aviat.',es:'¡Gracias! He recibido tu solicitud y te contactaré muy pronto.',en:'Thanks! I\'ve received your request and will be in touch very soon.'},
+  f_err:{ca:'Hi ha hagut un problema en enviar. Torna-ho a provar o escriu-me per email.',es:'Ha habido un problema al enviar. Inténtalo de nuevo o escríbeme por email.',en:'Something went wrong. Please try again or email me directly.'}
 };
 
 /* ---------------- Render ---------------- */
