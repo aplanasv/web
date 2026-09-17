@@ -144,14 +144,8 @@
   .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28)}
   .hero .btn-ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
   .hero .btn-primary{box-shadow:0 10px 26px -10px rgba(0,0,0,.55)}
-  .hero-photo{border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.14);min-height:340px;padding:16px}
-  .hero-diagram{display:block;width:100%;height:100%}
-  .hero-diagram .diagram-bg{fill:#fff}
-  .hero-diagram .link{stroke:#1C5DA8;stroke-opacity:.3;stroke-width:1.5}
-  .hero-diagram .hub-ring{fill:#fff;stroke:#1C5DA8;stroke-width:2.5}
-  .hero-diagram .node-ring{fill:#fff;stroke:#D9E0EA;stroke-width:1.5}
-  .hero-diagram .node-icon{stroke:#1C5DA8;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .hero-diagram .node-label{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;fill:#53667E;letter-spacing:.02em}
+  .hero-photo{border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -24px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.14);min-height:340px}
+  .hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
 
   /* ---------- Section scaffolding ---------- */
   section{padding:76px 0}
@@ -307,7 +301,7 @@
 
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
-    .hero-photo{min-height:0;aspect-ratio:440/560}
+    .hero-photo{min-height:0;aspect-ratio:4/5}
     .steps{grid-template-columns:1fr 1fr}
     .why-grid{grid-template-columns:1fr}
     .contact .wrap{grid-template-columns:1fr;gap:34px}
@@ -359,61 +353,7 @@
           </div>
         </div>
         <div class="hero-photo fade">
-          <svg class="hero-diagram" viewBox="0 0 440 560" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Diagrama de les àrees de negoci (Finances, Compres, Vendes, Magatzem, Producció, CRM) connectades a través d'un sol consultor">
-            <rect class="diagram-bg" x="0" y="0" width="440" height="560"/>
-            <g class="link">
-              <line x1="220" y1="280" x2="220" y2="100"/>
-              <line x1="220" y1="280" x2="376" y2="190"/>
-              <line x1="220" y1="280" x2="376" y2="370"/>
-              <line x1="220" y1="280" x2="220" y2="460"/>
-              <line x1="220" y1="280" x2="64" y2="370"/>
-              <line x1="220" y1="280" x2="64" y2="190"/>
-            </g>
-            <g>
-              <circle class="node-ring" cx="220" cy="100" r="30"/>
-              <g class="node-icon" transform="translate(209,89)">
-                <circle cx="12" cy="12" r="9"/><path d="M15 9.5C14.3 8.6 13.2 8 12 8c-2 0-3.5 1.8-3.5 4s1.5 4 3.5 4c1.2 0 2.3-.6 3-1.5M8 11h5M8 13h5"/>
-              </g>
-              <text class="node-label" x="220" y="150" text-anchor="middle">Finances</text>
-            </g>
-            <g>
-              <circle class="node-ring" cx="376" cy="190" r="30"/>
-              <g class="node-icon" transform="translate(365,179)">
-                <path d="M3 4h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/><circle cx="9.5" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/>
-              </g>
-              <text class="node-label" x="376" y="240" text-anchor="middle">Compres</text>
-            </g>
-            <g>
-              <circle class="node-ring" cx="376" cy="370" r="30"/>
-              <g class="node-icon" transform="translate(365,359)">
-                <path d="M3 7v5.2c0 .5.2 1 .6 1.4l7 7a2 2 0 0 0 2.8 0l5.8-5.8a2 2 0 0 0 0-2.8l-7-7A2 2 0 0 0 10.8 4H5a2 2 0 0 0-2 2Z"/><circle cx="7.5" cy="8.5" r="1.3"/>
-              </g>
-              <text class="node-label" x="376" y="420" text-anchor="middle">Vendes</text>
-            </g>
-            <g>
-              <circle class="node-ring" cx="220" cy="460" r="30"/>
-              <g class="node-icon" transform="translate(209,449)">
-                <path d="M3 9.5 12 4l9 5.5V20H3V9.5Z"/><path d="M8 20v-6h8v6M8 14h8"/>
-              </g>
-              <text class="node-label" x="220" y="510" text-anchor="middle">Magatzem</text>
-            </g>
-            <g>
-              <circle class="node-ring" cx="64" cy="370" r="30"/>
-              <g class="node-icon" transform="translate(53,359)">
-                <circle cx="12" cy="12" r="3"/><path d="M19.4 13.5a7.7 7.7 0 0 0 0-3l1.7-1.3-1.7-3-2 .8a7.7 7.7 0 0 0-2.6-1.5L14.5 3h-5l-.3 2.5a7.7 7.7 0 0 0-2.6 1.5l-2-.8-1.7 3L4.6 10.5a7.7 7.7 0 0 0 0 3l-1.7 1.3 1.7 3 2-.8a7.7 7.7 0 0 0 2.6 1.5L9.5 21h5l.3-2.5a7.7 7.7 0 0 0 2.6-1.5l2 .8 1.7-3Z"/>
-              </g>
-              <text class="node-label" x="64" y="420" text-anchor="middle">Producció</text>
-            </g>
-            <g>
-              <circle class="node-ring" cx="64" cy="190" r="30"/>
-              <g class="node-icon" transform="translate(53,179)">
-                <circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0M16 6.5a3 3 0 0 1 0 5.8M17.5 19a5.5 5.5 0 0 0-2.3-4.5"/>
-              </g>
-              <text class="node-label" x="64" y="240" text-anchor="middle">CRM</text>
-            </g>
-            <circle class="hub-ring" cx="220" cy="280" r="54"/>
-            <image href="assets/icon-mark.png" x="188" y="248" width="64" height="64"/>
-          </svg>
+          <img src="assets/hero-photo.jpg" alt="Consultor treballant amb dades de negoci en un escriptori modern">
         </div>
       </div>
     </div>
