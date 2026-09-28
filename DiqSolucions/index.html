@@ -79,7 +79,7 @@
     transition:background-color .35s var(--ease-out),color .35s var(--ease-out);
   }
   /* smooth color-scheme swap on theme toggle */
-  header,.area,.why-card,.form-card,.panel,.chain .node,.partner-ph{
+  header,.area,.why-card,.form-card,.panel,.chain .node{
     transition:background-color .35s var(--ease-out),border-color .35s var(--ease-out),color .35s var(--ease-out),box-shadow .35s var(--ease-out);
   }
   h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.02em}
@@ -205,17 +205,6 @@
   .about-grid{max-width:640px}
   .about-bio .big{font-family:"Archivo";font-weight:600;font-size:1.3rem;line-height:1.4;color:var(--ink);letter-spacing:-.01em;margin-bottom:16px}
   .about-bio p{color:var(--ink-soft)}
-  .proof-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;align-items:center}
-  .partner-ph{
-    display:flex;align-items:center;gap:12px;border:2px dashed var(--line);border-radius:12px;
-    padding:12px 16px;background:var(--surface-2);color:var(--muted);
-  }
-  .partner-ph .mslogo{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:26px;height:26px;flex:none}
-  .partner-ph .mslogo i{display:block;border-radius:1px}
-  .partner-ph .mslogo i:nth-child(1){background:#F25022}.partner-ph .mslogo i:nth-child(2){background:#7FBA00}
-  .partner-ph .mslogo i:nth-child(3){background:#00A4EF}.partner-ph .mslogo i:nth-child(4){background:#FFB900}
-  .partner-ph .pt{font-size:.76rem;line-height:1.3}
-  .partner-ph .pt b{color:var(--ink-soft);font-weight:600;display:block;font-size:.86rem}
 
   /* ---------- Lead / consultor chain ---------- */
   .lead-text{font-size:1.12rem;color:var(--ink-soft);max-width:62ch;line-height:1.6}
@@ -444,12 +433,6 @@
         <div class="about-bio">
           <p class="big" data-i18n="about_big">«Sota la marca Diq Solucions hi ha un únic consultor, especialitzat en Microsoft Dynamics 365 Business Central.»</p>
           <p class="about-quote" data-i18n="about_quote">«El meu objectiu no és que aprenguis a utilitzar Business Central. El meu objectiu és que Business Central t'ajudi a treballar millor.»</p>
-          <div class="proof-row">
-            <div class="partner-ph">
-              <span class="mslogo"><i></i><i></i><i></i><i></i></span>
-              <span class="pt"><b>Microsoft Partner</b><span data-i18n="about_partner">Espai per al distintiu (quan el tingueu)</span></span>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -526,7 +509,7 @@ const CONTACT = {
    posant el correu on vols rebre les sol·licituds, i enganxa-la aquí. */
 const FORM = {
   accessKey: "LA_TEVA_ACCESS_KEY_WEB3FORMS",  // ← enganxa aquí la clau de Web3Forms
-  privacyUrl: "#"                              // ← enllaç a la política de privacitat (quan en tingueu)
+  privacyUrl: "privacitat.html"
 };
 
 /* Xifres de la banda de prova social. Pots canviar els valors quan tinguis
@@ -674,7 +657,6 @@ const I18N = {
   golive_body:{ca:'Posar l\'ERP en marxa no vol dir que el projecte s\'hagi acabat. No vull que depenguis de mi: m\'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l\'enteniment de Business Central.',es:'Poner el ERP en marcha no significa que el proyecto haya terminado. No quiero que dependas de mí: me anticipo a vuestras necesidades para que los equipos sean cada vez más autónomos y tomen decisiones con criterio desde el entendimiento de Business Central.',en:'Going live doesn\'t mean the project is over. I don\'t want you to depend on me: I anticipate your needs so your teams become ever more autonomous and make sound decisions from a real understanding of Business Central.'},
   tagline:{ca:'La diferència no és l\'ERP. És <span class="hl">qui l\'implanta</span>.',es:'La diferencia no está en el ERP. Está en <span class="hl">quién lo implanta</span>.',en:'The difference isn\'t the ERP. It\'s <span class="hl">who implements it</span>.'},
   about_big:{ca:'«Sota la marca Diq Solucions hi ha un únic consultor, especialitzat en Microsoft Dynamics 365 Business Central.»',es:'«Bajo la marca Diq Solucions hay un único consultor, especializado en Microsoft Dynamics 365 Business Central.»',en:'"Behind the Diq Solucions brand is a single consultant, specialized in Microsoft Dynamics 365 Business Central."'},
-  about_partner:{ca:'Espai per al distintiu (quan el tingueu)',es:'Espacio para el distintivo (cuando lo tengáis)',en:'Space for the badge (once available)'},
   contact_title:{ca:'Estàs pensant a canviar d\'ERP?',es:'¿Estás pensando en cambiar de ERP?',en:'Thinking about switching ERP?'},
   contact_sub:{ca:'No comencis per una demo. Comença parlant amb qui entendrà la teva empresa.',es:'No empieces por una demo. Empieza hablando con quien va a entender tu empresa.',en:'Don\'t start with a demo. Start by talking to someone who will understand your business.'},
   contact_email_label:{ca:'Email',es:'Email',en:'Email'},
