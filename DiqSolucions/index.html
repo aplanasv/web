@@ -240,8 +240,6 @@
   /* ---------- About quote & fields ---------- */
   .about-quote{position:relative;margin-top:20px;padding:20px 22px 20px 50px;background:var(--surface-2);border-radius:14px;font-family:"Archivo";font-weight:600;font-size:1.08rem;color:var(--ink);line-height:1.5}
   .about-quote::before{content:"\201C";position:absolute;top:.05em;left:16px;font-family:"Archivo";font-weight:800;font-size:2.2rem;line-height:1;color:var(--accent)}
-  .about-fields{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:16px;font-size:.88rem;color:var(--muted)}
-  .about-fields b{color:var(--ink-soft);font-weight:600}
 
   /* ---------- Tagline band ---------- */
   .tagband{background:#0A1626}
@@ -445,10 +443,6 @@
       <div class="about-grid">
         <div class="about-bio">
           <p class="big" data-i18n="about_big">«Sota la marca Diq Solucions hi ha un únic consultor, especialitzat en Microsoft Dynamics 365 Business Central.»</p>
-          <div class="about-fields">
-            <span><b data-i18n="about_lbl_exp">Experiència</b> · <span data-i18n="about_val_exp">[anys / projectes — a completar]</span></span>
-            <span><b data-i18n="about_lbl_spec">Especialitats</b> · <span data-i18n="about_val_spec">[àrees de BC — a completar]</span></span>
-          </div>
           <p class="about-quote" data-i18n="about_quote">«El meu objectiu no és que aprenguis a utilitzar Business Central. El meu objectiu és que Business Central t'ajudi a treballar millor.»</p>
           <div class="proof-row">
             <div class="partner-ph">
@@ -675,10 +669,6 @@ const I18N = {
   nodev_body:{ca:'<strong>Criteri, no sobrecost.</strong> Abans de personalitzar Business Central, analitzo què es pot resoldre amb estàndard, configuració, extensió o integració. La meva feina també és dir-te quan NO cal desenvolupar.',es:'<strong>Criterio, no sobrecoste.</strong> Antes de personalizar Business Central analizo qué puede resolverse con estándar, configuración, extensión o integración. Mi trabajo también consiste en decirte cuándo NO hace falta desarrollar.',en:'<strong>Judgement, not overspend.</strong> Before customizing Business Central I look at what can be solved with standard, configuration, an extension or an integration. Part of my job is telling you when you don\'t need to develop.'},
   why_title:{ca:'Primer consultoria. Després tecnologia.',es:'Primero consultoría. Después tecnología.',en:'Consultancy first. Technology later.'},
   about_title:{ca:'Un sol responsable, de principi a fi',es:'Un solo responsable, de principio a fin',en:'One person responsible, end to end'},
-  about_lbl_exp:{ca:'Experiència',es:'Experiencia',en:'Experience'},
-  about_val_exp:{ca:'[anys / projectes — a completar]',es:'[años / proyectos — a completar]',en:'[years / projects — to complete]'},
-  about_lbl_spec:{ca:'Especialitats',es:'Especialidades',en:'Specialties'},
-  about_val_spec:{ca:'[àrees de BC — a completar]',es:'[áreas de BC — a completar]',en:'[BC areas — to complete]'},
   about_quote:{ca:'«El meu objectiu no és que aprenguis a utilitzar Business Central. El meu objectiu és que Business Central t\'ajudi a treballar millor.»',es:'«Mi objetivo no es que aprendas a utilizar Business Central. Mi objetivo es que Business Central te ayude a trabajar mejor.»',en:'"My goal isn\'t for you to learn how to use Business Central. My goal is for Business Central to help you work better."'},
   golive_title:{ca:'Després del Go-Live, continuo',es:'Después del Go-Live, continúo',en:'After go-live, I keep going'},
   golive_body:{ca:'Posar l\'ERP en marxa no vol dir que el projecte s\'hagi acabat. No vull que depenguis de mi: m\'anticipo a les vostres necessitats perquè els equips siguin cada cop més autònoms i prenguin decisions amb criteri des de l\'enteniment de Business Central.',es:'Poner el ERP en marcha no significa que el proyecto haya terminado. No quiero que dependas de mí: me anticipo a vuestras necesidades para que los equipos sean cada vez más autónomos y tomen decisiones con criterio desde el entendimiento de Business Central.',en:'Going live doesn\'t mean the project is over. I don\'t want you to depend on me: I anticipate your needs so your teams become ever more autonomous and make sound decisions from a real understanding of Business Central.'},
