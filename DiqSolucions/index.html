@@ -279,6 +279,9 @@
   /* ---------- Footer ---------- */
   footer{background:var(--bg);padding:34px 0}
   .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}
+  .foot-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+  .foot-links a:hover{color:var(--accent)}
 
   .fade{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
   .fade.in{opacity:1;transform:none}
@@ -495,7 +498,10 @@
 <footer>
   <div class="wrap foot">
     <a class="brand" href="#top"><img src="assets/icon-mark.png" alt="">Diq Solucions</a>
-    <span data-i18n="footer">Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions</span>
+    <div class="foot-links">
+      <span data-i18n="footer">Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions</span>
+      <a href="privacitat.html" data-i18n="footer_privacy">Política de privacitat</a>
+    </div>
   </div>
 </footer>
 
@@ -661,6 +667,7 @@ const I18N = {
   contact_sub:{ca:'No comencis per una demo. Comença parlant amb qui entendrà la teva empresa.',es:'No empieces por una demo. Empieza hablando con quien va a entender tu empresa.',en:'Don\'t start with a demo. Start by talking to someone who will understand your business.'},
   contact_email_label:{ca:'Email',es:'Email',en:'Email'},
   footer:{ca:'Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions',es:'Consultoría Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions',en:'Microsoft Dynamics 365 Business Central consultancy · © 2026 Diq Solucions'},
+  footer_privacy:{ca:'Política de privacitat',es:'Política de privacidad',en:'Privacy policy'},
   form_title:{ca:'Sol·licita la teva consultoria',es:'Solicita tu consultoría',en:'Request your consultation'},
   form_sub:{ca:'Deixa\'m les teves dades i et contacto sense compromís.',es:'Déjame tus datos y te contacto sin compromiso.',en:'Leave your details and I\'ll get back to you, no strings attached.'},
   f_name:{ca:'Nom i cognoms',es:'Nombre y apellidos',en:'Full name'},
