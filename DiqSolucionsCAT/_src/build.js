@@ -43,9 +43,9 @@ ul,ol{margin:0;padding:0}
 
 /* header */
 header{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line-soft);box-shadow:0 1px 0 rgba(0,0,0,.02),0 8px 24px -16px rgba(0,0,0,.25)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
 .brand{display:flex;align-items:center;text-decoration:none;flex:none}
-.brand img{display:block;height:40px;width:auto}
+.brand img{display:block;height:54px;width:auto}
 .nav-right{display:flex;align-items:center;gap:12px}
 .langsw{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
 .langsw a{text-decoration:none;color:var(--muted);font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:.72rem;letter-spacing:.05em;padding:5px 10px;border-radius:999px;transition:.16s var(--ease)}
@@ -299,7 +299,7 @@ footer{background:var(--bg);padding:40px 0}
 @media(max-width:620px){
   :root{font-size:16px}
   .nav{gap:10px}
-  .brand img{height:32px}
+  .brand img{height:42px}
   .langsw{padding:2px}
   .langsw a{padding:5px 8px}
   .nav .btn{display:none}
@@ -357,7 +357,7 @@ function header(c, ctaHref, target) {
   const b = baseOf(c);
   return `<header>
   <div class="wrap nav">
-    <a class="brand" href="${homeHref(c, c)}"><img src="${b}assets/logo.png" alt="Diq Solucions" width="136" height="40"></a>
+    <a class="brand" href="${homeHref(c, c)}"><img src="${b}assets/logo-${c.lang}.png" alt="${esc(c.footer.logoAlt)}" width="${{ca:191,es:185,en:190}[c.lang]}" height="54"></a>
     <div class="nav-right">
       ${langSwitch(c, target || homeHref)}
       <a class="btn btn-primary" href="${ctaHref}">${esc(c.nav.cta)}</a>
