@@ -5,7 +5,7 @@ const content = require('./content.js');
 
 const ROOT = path.join(__dirname, '..');
 const SITE = 'https://diqsolucions.cat';
-const EMAIL = 'info@diqsolucions.com';              // canvia'l si hi ha una bústia @diqsolucions.cat
+const EMAIL = 'info@diqsolucions.cat';
 const ACCESS_KEY = 'LA_TEVA_ACCESS_KEY_WEB3FORMS';   // clau de Web3Forms (pendent)
 const ORDER = ['ca', 'es', 'en'];
 
