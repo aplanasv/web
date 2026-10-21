@@ -3,28 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#013D70">
 <title>Diq Solucions</title>
 <meta name="description" content="Consultoria especialitzada en Microsoft Dynamics 365 Business Central." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231C5DA8'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
   :root{
+    color-scheme:light;
     --bg:#EBEFF4;
     --surface:#FFFFFF;
     --surface-2:#F4F7FA;
-    --ink:#0C1A2B;
+    --ink:#0A2036;
     --ink-soft:#24384F;
     --muted:#53667E;
     --line:#D9E0EA;
     --line-soft:#E6EBF1;
-    --accent:#1C5DA8;
-    --accent-strong:#16497F;
-    --accent-ghost:#E4EDF8;
-    --accent-solid:#1C5DA8;
-    --accent-solid-strong:#16497F;
-    --warm:#B4682F;
+    --accent:#0A4A87;
+    --accent-strong:#013D70;
+    --accent-ghost:#E3ECF6;
+    --gold:#E2AB2B;
+    --gold-strong:#D49C1E;
+    --gold-deep:#B5820F;
+    --gold-ghost:#F7EBC6;
+    --on-gold:#0B2A4A;
     --shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px -12px rgba(0,0,0,.14);
     --shadow-sm:0 1px 2px rgba(0,0,0,.05),0 4px 14px -8px rgba(0,0,0,.12);
     --maxw:1120px;
@@ -32,40 +37,6 @@
     --ease: cubic-bezier(.4,0,.2,1);
     --ease-out: cubic-bezier(.16,1,.3,1);
     font-size:17px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#091321;
-      --surface:#0F1E31;
-      --surface-2:#13253A;
-      --ink:#E9F1FA;
-      --ink-soft:#C4D3E4;
-      --muted:#8EA1B9;
-      --line:#213750;
-      --line-soft:#1A2D44;
-      --accent:#4F93DE;
-      --accent-strong:#72AAE8;
-      --accent-ghost:#132B46;
-      --warm:#D78A55;
-      --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6);
-      --shadow-sm:0 1px 2px rgba(0,0,0,.3),0 6px 18px -10px rgba(0,0,0,.5);
-    }
-  }
-  :root[data-theme="dark"]{
-    --bg:#091321;
-    --surface:#0F1E31;
-    --surface-2:#13253A;
-    --ink:#E9F1FA;
-    --ink-soft:#C4D3E4;
-    --muted:#8EA1B9;
-    --line:#213750;
-    --line-soft:#1A2D44;
-    --accent:#4F93DE;
-    --accent-strong:#72AAE8;
-    --accent-ghost:#132B46;
-    --warm:#D78A55;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 40px -16px rgba(0,0,0,.6);
-    --shadow-sm:0 1px 2px rgba(0,0,0,.3),0 6px 18px -10px rgba(0,0,0,.5);
   }
 
   *{box-sizing:border-box}
@@ -76,11 +47,6 @@
     margin:0;background:var(--bg);color:var(--ink);overflow-x:hidden;
     font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     line-height:1.6;-webkit-font-smoothing:antialiased;
-    transition:background-color .35s var(--ease-out),color .35s var(--ease-out);
-  }
-  /* smooth color-scheme swap on theme toggle */
-  header,.area,.why-card,.form-card,.panel,.chain .node{
-    transition:background-color .35s var(--ease-out),border-color .35s var(--ease-out),color .35s var(--ease-out),box-shadow .35s var(--ease-out);
   }
   h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;line-height:1.08;text-wrap:balance;margin:0;letter-spacing:-.02em}
   p{margin:0}
@@ -98,8 +64,8 @@
     border-bottom:1px solid var(--line-soft);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:66px}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:"Archivo";font-weight:800;font-size:1.12rem;letter-spacing:-.02em;color:var(--ink);white-space:nowrap;flex:none}
-  .brand img{display:block;height:28px;width:auto;flex:none}
+  .brand{display:flex;align-items:center;text-decoration:none;flex:none}
+  .brand img{display:block;height:40px;width:auto}
   .nav-right{display:flex;align-items:center;gap:10px}
   .langsw{display:inline-flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
   .langsw button{
@@ -109,36 +75,32 @@
   }
   .langsw button:hover{color:var(--ink)}
   .langsw button:active{transform:scale(.92)}
-  .langsw button[aria-pressed="true"]{background:var(--accent-solid);color:#fff}
+  .langsw button[aria-pressed="true"]{background:var(--accent);color:#fff}
   .btn{
     display:inline-flex;align-items:center;gap:.5em;text-decoration:none;cursor:pointer;
     font-weight:600;font-size:.92rem;border-radius:999px;padding:10px 18px;border:1px solid transparent;
     transition:.16s var(--ease);white-space:nowrap;
   }
-  .btn-primary{background:var(--accent-solid);color:#fff;box-shadow:var(--shadow-sm)}
-  .btn-primary:hover{background:var(--accent-solid-strong)}
+  .btn-primary{background:var(--gold);color:var(--on-gold);box-shadow:var(--shadow-sm)}
+  .btn-primary:hover{background:var(--gold-strong)}
   .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
   .btn:active{transform:scale(.97)}
   .btn:disabled{opacity:.6;cursor:not-allowed}
   .nav .btn{padding:9px 16px;font-size:.86rem}
-  .theme-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:.16s var(--ease);flex:none}
-  .theme-btn:active{transform:scale(.9)}
-  .theme-btn:hover{color:var(--ink);border-color:var(--accent)}
-  .theme-btn svg{width:18px;height:18px}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;overflow:hidden;background:#0A1626;background-size:cover;background-position:center;border-bottom:1px solid var(--line-soft)}
+  .hero{position:relative;overflow:hidden;background:#08203A;background-size:cover;background-position:center;border-bottom:1px solid var(--line-soft)}
   .hero::before{
     content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-    background:linear-gradient(105deg,rgba(8,17,32,.95) 0%,rgba(8,17,32,.82) 42%,rgba(8,17,32,.52) 100%);
+    background:linear-gradient(105deg,rgba(4,22,45,.95) 0%,rgba(4,22,45,.82) 42%,rgba(4,22,45,.5) 100%);
   }
   .hero .wrap{position:relative;z-index:1;padding-top:80px;padding-bottom:82px}
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:54px;align-items:stretch}
   .hero-grid>*{min-width:0}
   .hero-points{margin-top:16px;color:rgba(255,255,255,.72);font-size:.86rem;font-family:"IBM Plex Mono",monospace;letter-spacing:.02em}
   .hero h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:800;margin:18px 0 20px;color:#fff}
-  .hero h1 .hl{color:#5AA1EA}
+  .hero h1 .hl{color:#EDB93A}
   .hero .lead{font-size:1.12rem;color:rgba(255,255,255,.84);max-width:46ch}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
   .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.28)}
@@ -177,18 +139,18 @@
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 20px}
   .step{position:relative;padding-top:20px}
   .step .stephead{display:flex;align-items:center;gap:10px;margin-bottom:13px}
-  .step .num{font-family:"Archivo";font-weight:800;font-size:.85rem;color:#fff;background:var(--accent-solid);width:31px;height:31px;border-radius:9px;display:grid;place-items:center;flex:none;font-variant-numeric:tabular-nums}
+  .step .num{font-family:"Archivo";font-weight:800;font-size:.85rem;color:#fff;background:var(--accent);width:31px;height:31px;border-radius:9px;display:grid;place-items:center;flex:none;font-variant-numeric:tabular-nums}
   .step .sico{width:28px;height:28px;border-radius:8px;background:var(--accent-ghost);color:var(--accent);display:grid;place-items:center;flex:none}
   .step .sico svg{width:16px;height:16px;display:block}
   .step::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--line)}
-  .step:first-child::before{background:var(--accent)}
+  .step:first-child::before{background:var(--gold)}
   .step h3{font-size:1rem;font-weight:700;margin-bottom:7px;font-family:"Archivo"}
   .step p{font-size:.88rem;color:var(--muted);line-height:1.55}
 
   /* ---------- Why (ordre de prioritats) ---------- */
   .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .why-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px;position:relative;overflow:hidden}
-  .why-card .bignum{position:absolute;top:-14px;right:8px;font-family:"Archivo";font-weight:800;font-size:4.6rem;line-height:1;color:var(--accent-ghost);z-index:0}
+  .why-card .bignum{position:absolute;top:-14px;right:8px;font-family:"Archivo";font-weight:800;font-size:4.6rem;line-height:1;color:var(--gold-ghost);z-index:0}
   .why-card .word{font-family:"IBM Plex Mono";font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);position:relative;z-index:1}
   .why-card h3{font-family:"Archivo";font-weight:800;font-size:1.45rem;margin:7px 0 9px;letter-spacing:-.02em;position:relative;z-index:1}
   .why-card p{font-size:.9rem;color:var(--muted);line-height:1.55;position:relative;z-index:1}
@@ -210,34 +172,34 @@
   .lead-text{font-size:1.12rem;color:var(--ink-soft);max-width:62ch;line-height:1.6}
   .chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:30px}
   .chain .node{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:600;font-size:.9rem;color:var(--ink);box-shadow:var(--shadow-sm)}
-  .chain .arw{color:var(--accent);font-weight:700;font-size:1.05rem}
+  .chain .arw{color:var(--gold-deep);font-weight:700;font-size:1.05rem}
 
   /* ---------- No development ---------- */
   .nodev-card{display:flex;gap:20px;align-items:flex-start;background:var(--accent-ghost);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px}
-  .nodev-card .nd-ico{width:46px;height:46px;border-radius:12px;background:var(--accent-solid);color:#fff;display:grid;place-items:center;flex:none}
+  .nodev-card .nd-ico{width:46px;height:46px;border-radius:12px;background:var(--gold);color:var(--on-gold);display:grid;place-items:center;flex:none}
   .nodev-card .nd-ico svg{width:24px;height:24px}
   .nodev-card p{color:var(--ink-soft);font-size:1.04rem;line-height:1.6;max-width:72ch}
 
   /* ---------- Go-live band ---------- */
   .goband{background:var(--surface-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
   .goband .gwrap{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
-  .goband .g-ico{width:54px;height:54px;border-radius:15px;background:var(--accent-ghost);color:var(--accent);display:grid;place-items:center;flex:none}
+  .goband .g-ico{width:54px;height:54px;border-radius:15px;background:var(--gold-ghost);color:var(--gold-deep);display:grid;place-items:center;flex:none}
   .goband .g-ico svg{width:27px;height:27px}
   .goband h3{font-family:"Archivo";font-weight:700;font-size:1.35rem;margin-bottom:9px;letter-spacing:-.01em}
   .goband p{color:var(--ink-soft);line-height:1.62;max-width:78ch}
 
   /* ---------- About quote & fields ---------- */
   .about-quote{position:relative;margin-top:20px;padding:20px 22px 20px 50px;background:var(--surface-2);border-radius:14px;font-family:"Archivo";font-weight:600;font-size:1.08rem;color:var(--ink);line-height:1.5}
-  .about-quote::before{content:"\201C";position:absolute;top:.05em;left:16px;font-family:"Archivo";font-weight:800;font-size:2.2rem;line-height:1;color:var(--accent)}
+  .about-quote::before{content:"\201C";position:absolute;top:.05em;left:16px;font-family:"Archivo";font-weight:800;font-size:2.2rem;line-height:1;color:var(--gold-deep)}
 
   /* ---------- Tagline band ---------- */
-  .tagband{background:#0A1626}
+  .tagband{background:#08203A}
   .tagband .twrap{max-width:var(--maxw);margin:0 auto;padding:48px 24px;text-align:center}
   .tagband h2{font-family:"Archivo";font-weight:800;font-size:clamp(1.4rem,3vw,2rem);color:#fff;letter-spacing:-.02em;max-width:26ch;margin:0 auto}
-  .tagband .hl{color:#5AA1EA}
+  .tagband .hl{color:#EDB93A}
 
   /* ---------- Contact ---------- */
-  .contact{background:linear-gradient(155deg,var(--accent-solid-strong),var(--accent-solid));color:#fff;border:0}
+  .contact{background:linear-gradient(155deg,#052B52,#0A4A87);color:#fff;border:0}
   .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
   .contact h2{color:#fff;font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;max-width:15ch}
   .contact .csub{color:rgba(255,255,255,.88);font-size:1.05rem;margin:18px 0 0;max-width:46ch}
@@ -264,7 +226,7 @@
     font:inherit;font-size:.92rem;padding:10px 12px;border:1px solid #D3DCE6;border-radius:9px;
     background:#F7F9FB;color:#0C1A2B;width:100%;transition:.15s;resize:vertical;
   }
-  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(28,93,168,.15)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(10,74,135,.18)}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:13px}
   .consent{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:#63758C;line-height:1.45;margin:4px 0 16px}
   .consent input{margin-top:2px;flex:none;accent-color:var(--accent)}
@@ -282,12 +244,14 @@
   .foot-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
   .foot-links a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
   .foot-links a:hover{color:var(--accent)}
+  .foot .brand img{height:34px}
 
   .fade{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
   .fade.in{opacity:1;transform:none}
   @media (prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;transition:none}}
 
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .hero :focus-visible,.contact :focus-visible,.tagband :focus-visible{outline-color:var(--gold)}
 
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
@@ -302,8 +266,7 @@
   @media(max-width:620px){
     :root{font-size:16px}
     .nav{gap:10px}
-    .brand{font-size:.98rem}
-    .brand img{height:24px}
+    .brand img{height:32px;width:auto}
     .langsw{padding:2px}
     .langsw button{padding:5px 8px}
     .nav .btn.contact-nav{display:none}
@@ -318,16 +281,13 @@
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="assets/icon-mark.png" alt="">Diq Solucions</a>
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="Diq Solucions" width="136" height="40"></a>
     <div class="nav-right">
       <div class="langsw" role="group" aria-label="Idioma">
         <button data-lang="ca" aria-pressed="true">CA</button>
         <button data-lang="es" aria-pressed="false">ES</button>
         <button data-lang="en" aria-pressed="false">EN</button>
       </div>
-      <button class="theme-btn" id="themeBtn" aria-label="Canvia el tema" title="Tema clar/fosc">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path class="sun" d="M12 3v2M12 19v2M5 5l1.4 1.4M17.6 17.6L19 19M3 12h2M19 12h2M5 19l1.4-1.4M17.6 6.4L19 5"/><circle cx="12" cy="12" r="3.6"/></svg>
-      </button>
       <a class="btn btn-primary contact-nav" href="#contacte" data-i18n="nav_cta">Parla amb mi</a>
     </div>
   </div>
@@ -497,7 +457,7 @@
 
 <footer>
   <div class="wrap foot">
-    <a class="brand" href="#top"><img src="assets/icon-mark.png" alt="">Diq Solucions</a>
+    <a class="brand" href="#top"><img src="assets/logo.png" alt="Diq Solucions" width="136" height="40"></a>
     <div class="foot-links">
       <span data-i18n="footer">Consultoria Microsoft Dynamics 365 Business Central · © 2026 Diq Solucions</span>
       <a href="privacitat.html" data-i18n="footer_privacy">Política de privacitat</a>
@@ -766,24 +726,10 @@ contactForm.addEventListener('submit', async (e)=>{
 
 document.querySelectorAll('.langsw button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 
-/* theme toggle */
-const themeBtn = document.getElementById('themeBtn');
-function currentTheme(){
-  const set = document.documentElement.getAttribute('data-theme');
-  if(set) return set;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light';
-}
-themeBtn.addEventListener('click',()=>{
-  const next = currentTheme()==='dark' ? 'light':'dark';
-  document.documentElement.setAttribute('data-theme', next);
-  try{ localStorage.setItem('diq_theme', next); }catch(e){}
-});
-
 /* init */
 (function init(){
-  let savedLang='ca', savedTheme=null;
-  try{ savedLang = localStorage.getItem('diq_lang')||'ca'; savedTheme = localStorage.getItem('diq_theme'); }catch(e){}
-  if(savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+  let savedLang='ca';
+  try{ savedLang = localStorage.getItem('diq_lang')||'ca'; }catch(e){}
   applyContact();
   setLang(['ca','es','en'].includes(savedLang)?savedLang:'ca');
 
