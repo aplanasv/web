@@ -328,11 +328,12 @@ function langSwitch(c, target) {
 function headBlock(c, { title, description, canonical, alternates }) {
   const b = baseOf(c);
   return `<!DOCTYPE html>
-<html lang="${c.htmlLang}">
+<html lang="${c.htmlLang}" translate="no" class="notranslate">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
+<meta name="google" content="notranslate">
 <meta name="theme-color" content="#013D70">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
